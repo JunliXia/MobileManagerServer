@@ -1,0 +1,48 @@
+@CHARSET "UTF-8";
+#allmap{
+width: 100%;
+float: left;
+height: 100%;
+}
+.memberlist{
+position:absolute;
+width: 180;
+z-index:1;
+height: 500px;
+top:100px;
+right:20px;
+background: white;
+border-radius:3px;
+}
+.memberhead{
+	text-align:center;
+border-radius:3px 3px 0 0;	
+ height: 25px;
+ padding-top: 3px;
+ background: black;
+ color: white;
+}
+.membermain{
+height: 472px;
+overflow-x:hidden;
+}
+.merber-one{
+height: 40px;
+cursor:pointer;
+padding-top: 10px;
+}
+.merberoneimg{
+width: 30px;height: 30px;
+margin-left: 10px;
+float: left;
+}
+.membername{
+float: left;
+margin-left:10px;
+width: 100px;
+margin-top: 5px;
+}
+.merber-one:hover{
+background: rgba(0,0,0,0.7);
+color:white;
+}

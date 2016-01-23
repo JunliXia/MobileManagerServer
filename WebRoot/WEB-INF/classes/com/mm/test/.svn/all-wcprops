@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/MobileManagerServer/!svn/ver/2/MobileManagerServer/src/com/mm/test
+END
+OtherTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/MobileManagerServer/!svn/ver/17/MobileManagerServer/src/com/mm/test/OtherTest.java
+END
+CreateTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/MobileManagerServer/!svn/ver/2/MobileManagerServer/src/com/mm/test/CreateTest.java
+END
+DaoTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/MobileManagerServer/!svn/ver/17/MobileManagerServer/src/com/mm/test/DaoTest.java
+END
+BllTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/MobileManagerServer/!svn/ver/2/MobileManagerServer/src/com/mm/test/BllTest.java
+END

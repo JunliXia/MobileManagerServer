@@ -1,0 +1,146 @@
+$(document).ready(function() {
+	
+	changecolors("#userbit");
+	touser();
+	
+//	 clientpoint();
+}) ;
+
+
+
+var hasclientnocheck=false;
+function clientpoint() {
+	var clientcount=0;
+//	clientcount++;
+	$.getJSON("./WCheckHasNoCheckClientServlet",function(outjson){
+			if(outjson.check){
+				hasclientnocheck=true;
+				$("#clientpoint").css("display","block");
+				$("#clientpoint").css("margin-left","90px");
+				$("#clientpoint").css("margin-top","-12px");
+
+			}else{
+				hasclientnocheck=false;
+				$("#clientpoint").css("display","none");
+			}
+		
+		});
+	if(clientcount!=100000){
+		setTimeout(clientpoint, 5000);
+	}
+
+}
+
+
+function loginout() {
+	 if (confirm("确定退出吗？")){	window.location.href="jsp/login.jsp"}
+	 else{}
+}
+
+
+function changecolors(x) {
+	$(".left_list div").attr("class","one");
+	  $(x).attr("class","two");
+}
+
+
+function toclient(){
+	$(".usermanage").hide();
+	$(".mapmanage").hide();
+	$(".transactionmanage").hide();
+	$(".taskmanage").hide();
+	$(".attendance").hide();
+	$(".client").hide();
+	$(".client").html("");
+	if($(".client").html()==""){
+	$(".client").load("jsp/child_jsp/client.jsp");}
+	else{
+		
+	}
+	$(".client").show();
+}
+
+function toattendance() {
+	$(".usermanage").hide();
+	$(".mapmanage").hide();
+	$(".transactionmanage").hide();
+	$(".taskmanage").hide();
+	$(".attendance").hide();
+	$(".client").hide();
+	$(".attendance").html("");
+	if($(".attendance").html()==""){
+	$(".attendance").load("jsp/child_jsp/attendance.jsp");}
+	else{
+		
+	}
+	$(".attendance").show();
+}
+
+function touser() {
+	$(".usermanage").hide();
+	$(".mapmanage").hide();
+	$(".transactionmanage").hide();
+	$(".taskmanage").hide();
+	$(".attendance").hide();
+	$(".client").hide();
+	$(".usermanage").html("");
+	if($(".usermanage").html()==""){
+	$(".usermanage").load("jsp/child_jsp/usermanage.jsp");}
+	else{
+		
+	}
+	$(".usermanage").show();
+}
+
+function tomap() {
+	$(".usermanage").hide();
+	$(".mapmanage").hide();
+	$(".transactionmanage").hide();
+	$(".taskmanage").hide();
+	$(".attendance").hide();
+	$(".client").hide();
+	$(".mapmanage").html("");
+	if($(".mapmanage").html()==""){
+	$(".mapmanage").load("jsp/child_jsp/mapmanage.jsp");}
+	else{
+		
+	}
+	$(".mapmanage").show();
+}
+function totransaction() {
+	$(".usermanage").hide();
+	$(".mapmanage").hide();
+	$(".transactionmanage").hide();
+	$(".taskmanage").hide();
+	$(".attendance").hide();
+	$(".client").hide();
+	$(".transactionmanage").html("");
+	if($(".transactionmanage").html()==""){
+	$(".transactionmanage").load("jsp/child_jsp/transactionmanage.jsp");
+	}else{
+		
+	}
+	$(".transactionmanage").show();
+}
+function totask() {
+	$(".usermanage").hide();
+	$(".mapmanage").hide();
+	$(".transactionmanage").hide();
+	$(".taskmanage").hide();
+	$(".attendance").hide();
+	$(".client").hide();
+	$(".taskmanage").html("");
+	if($(".taskmanage").html()==""){
+	$(".taskmanage").load("jsp/child_jsp/taskmanage.jsp");
+	}
+	else{
+		
+	}
+	$(".taskmanage").show();
+}
+
+
+
+function closepage() {
+	$(".shadow").hide();
+}

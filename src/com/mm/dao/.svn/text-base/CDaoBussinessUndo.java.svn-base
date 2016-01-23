@@ -1,0 +1,35 @@
+package com.mm.dao;
+
+import org.springframework.dao.DataAccessException;
+import org.springframework.stereotype.Component;
+
+import com.mm.entity.CEntityBussiness;
+import com.mm.entity.CEntityBussinessUndo;
+
+@Component("cDaoBussinessUndo")
+public class CDaoBussinessUndo extends SuperDAO{
+	/**
+	 * 序号：bussinessundo:1
+	 * 功能：增加一条出差撤销
+	 * 参数：CEntityBussiness(BussinessId),CEntityBussinessUndo(本表字段)
+	 * 返回值:boolean
+	 */
+	public boolean savaBussinessUndo(CEntityBussiness cEntityBussiness,CEntityBussinessUndo cEntityBussinessUndo){
+		boolean bisSave=false;
+		CEntityBussiness findResult=(CEntityBussiness)this.getHibernateTemplate().get(CEntityBussiness.class, cEntityBussiness.getM_iBussinessId());
+		cEntityBussinessUndo.setcEntityBussiness(findResult);
+		try {
+			this.getHibernateTemplate().save(cEntityBussinessUndo);
+			bisSave=true;
+		} catch (DataAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return bisSave;
+		
+	}
+	
+	
+	
+	
+}

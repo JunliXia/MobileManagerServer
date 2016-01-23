@@ -1,0 +1,216 @@
+package com.mm.dao;
+
+import java.util.Iterator;
+import java.util.List;
+
+import org.springframework.dao.DataAccessException;
+import org.springframework.stereotype.Component;
+
+import com.mm.entity.CEntityBussiness;
+import com.mm.entity.CEntityEmployee;
+import com.mm.entityarray.CEntityBussinessArray;
+import com.mm.tool.MyConstant;
+
+@Component("cDaoBussiness")
+public class CDaoBussiness extends SuperDAO {
+
+	/**
+	 * 序号：bussiness:1 功能：增加一条出差
+	 * 参数：cEntityEmployee(EmployeeId),cEntityBussiness(本表字段) 返回值:boolean
+	 */
+	public boolean saveBussiness(CEntityEmployee cEntityEmployee,
+			CEntityBussiness cEntityBussiness) {
+		CEntityEmployee findResult = (CEntityEmployee) this
+				.getHibernateTemplate().get(CEntityEmployee.class,
+						cEntityEmployee.getM_iEmployeeId());
+
+		boolean bisSave = false;
+
+		try {
+			this.getHibernateTemplate().save(cEntityBussiness);
+			findResult.getcEntityBussinesses().add(cEntityBussiness);
+			this.getHibernateTemplate().update(findResult);
+			bisSave = true;
+		} catch (DataAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return bisSave;
+	}
+
+	/**
+	 * 序号：bussiness:2 功能：按员工号获得所有的出差(本表字段) 参数：cEntityEmployee(EmployeeId)
+	 * 返回值:CEntityBussinessArray
+	 */
+	@SuppressWarnings("unchecked")
+	public CEntityBussinessArray queryAllBussinessByEmployeeId(
+			CEntityEmployee cEntityEmployee) {
+		String hql = "select new CEntityBussiness(bussiness.m_iBussinessId, bussiness.m_sBussinessSideAddress,bussiness.m_sBussinessContent,bussiness.m_sBussinessRegisterTime,bussiness.m_sBussinessInAddress, bussiness.m_sBussinessInTime,bussiness.m_sBussinessOutAddress, bussiness.m_sBussinessOutTime,bussiness.m_sBussinessReturnTime,bussiness.m_iBussinessState) from com.mm.entity.CEntityBussiness as bussiness where EmployeeId=? order by bussiness.m_sBussinessReturnTime desc";
+		List<?> findResult = this.getHibernateTemplate().find(hql,
+				cEntityEmployee.getM_iEmployeeId());
+		CEntityBussinessArray cEntityBussinessArray = new CEntityBussinessArray(
+				(List<CEntityBussiness>) findResult);
+		return cEntityBussinessArray;
+	}
+
+	/**
+	 * 序号：bussiness:3 功能：出差登记修改登记时间并将出差状态修改为执行中
+	 * 参数：cEntityBussiness(BussinessId,BussinessRegisterTime) 返回值:boolean
+	 */
+	public boolean updateBussinessRegisterTime(CEntityBussiness cEntityBussiness) {
+		String hql = "update com.mm.entity.CEntityBussiness as bussiness set BussinessRegisterTime=? , BussinessState=? where BussinessId=? ";
+
+		boolean bisUpdate = false;
+		try {
+			this.getHibernateTemplate().bulkUpdate(
+					hql,
+					new Object[] {
+							cEntityBussiness.getM_sBussinessRegisterTime(),
+							MyConstant.Bussiness.BUSSINESS_UNDERWAY,
+							cEntityBussiness.getM_iBussinessId() });
+			bisUpdate = true;
+		} catch (DataAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return bisUpdate;
+	}
+
+	/**
+	 * 序号：bussiness:4 功能：抵达目的地登记修改抵达地址与时间
+	 * 参数：cEntityBussiness(BussinessId,BussinessInAddress,BussinessInTime)
+	 * 返回值:boolean
+	 */
+	public boolean updateBussinessInTimeAndInAddress(
+			CEntityBussiness cEntityBussiness) {
+		String hql = "update com.mm.entity.CEntityBussiness as bussiness set BussinessInAddress=?,BussinessInTime=? where BussinessId=?";
+		System.out.println(hql);
+		System.out.println(cEntityBussiness.toString());
+		boolean bisUpdate = false;
+		try {
+			this.getHibernateTemplate().bulkUpdate(
+					hql,
+					new Object[] { cEntityBussiness.getM_sBussinessInAddress(),
+							cEntityBussiness.getM_sBussinessInTime(),
+							cEntityBussiness.getM_iBussinessId() });
+			bisUpdate = true;
+		} catch (DataAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return bisUpdate;
+	}
+
+	/**
+	 * 序号：bussiness:5 功能：离开目的地登记修改离开地址与时间
+	 * 参数：cEntityBussiness(BussinessId,BussinessOutAddress,BussinessOutTime)
+	 * 返回值:boolean
+	 */
+	public boolean updateBussinessOutTimeAndOutAddress(
+			CEntityBussiness cEntityBussiness) {
+		String hql = "update com.mm.entity.CEntityBussiness as bussiness set BussinessOutAddress=?,BussinessOutTime=? where BussinessId=?";
+
+		boolean bisUpdate = false;
+		try {
+			this.getHibernateTemplate().bulkUpdate(
+					hql,
+					new Object[] {
+							cEntityBussiness.getM_sBussinessOutAddress(),
+							cEntityBussiness.getM_sBussinessOutTime(),
+							cEntityBussiness.getM_iBussinessId() });
+			bisUpdate = true;
+		} catch (DataAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return bisUpdate;
+	}
+
+	/**
+	 * 序号：bussiness:6 功能：出差归来登记时间并修改出差状态为未审核
+	 * 参数：cEntityBussiness(BussinessId,BussinessReturnTime) 返回值:boolean
+	 */
+	public boolean updateBussinessReturn(CEntityBussiness cEntityBussiness) {
+		String hql = "update com.mm.entity.CEntityBussiness as bussiness set BussinessReturnTime=?,BussinessState=? where BussinessId=?";
+		boolean bisUpdate = false;
+		try {
+			this.getHibernateTemplate().bulkUpdate(
+					hql,
+					new Object[] {
+							cEntityBussiness.getM_sBussinessReturnTime(),
+							MyConstant.Bussiness.BUSSINESS_WAITCHECK,
+							cEntityBussiness.getM_iBussinessId() });
+			bisUpdate = true;
+		} catch (DataAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return bisUpdate;
+	}
+
+	/**
+	 * 序号：bussiness:7 
+	 * 功能：按出差号修改出差状态 
+	 * 参数：cEntityBussiness(BussinessId) 
+	 * 返回值:boolean
+	 */
+	public boolean updateBussinessStateByBussinessId(
+			CEntityBussiness cEntityBussiness, int OperateState) {
+		String hql = "update com.mm.entity.CEntityBussiness as bussiness set BussinessState=? where BussinessId=?";
+		boolean bisUpdate = false;
+		try {
+			this.getHibernateTemplate().bulkUpdate(
+					hql,
+					new Object[] { OperateState,
+							cEntityBussiness.getM_iBussinessId() });
+			bisUpdate = true;
+		} catch (DataAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return bisUpdate;
+
+	}
+
+	
+	
+	/**
+	 * 序号：bussiness:8
+	 * 功能：按员工号获取运行态的出差(未登记,执行中)
+	 * 参数：cEntityEmployee(EmployeeId) 
+	 * 返回值:CEntityBussiness
+	 */
+	public CEntityBussiness queryBussinessRunningStateByEmployeeId(CEntityEmployee cEntityEmployee){
+		String hql = "select new CEntityBussiness(bussiness.m_iBussinessId, bussiness.m_sBussinessSideAddress,bussiness.m_sBussinessContent,bussiness.m_sBussinessRegisterTime,bussiness.m_sBussinessInAddress, bussiness.m_sBussinessInTime,bussiness.m_sBussinessOutAddress, bussiness.m_sBussinessOutTime,bussiness.m_sBussinessReturnTime,bussiness.m_iBussinessState) from com.mm.entity.CEntityBussiness as bussiness where EmployeeId=? and BussinessState in(?,?)";
+		List<?> findResult=this.getHibernateTemplate().find(hql,new Object[]{cEntityEmployee.getM_iEmployeeId(),MyConstant.Bussiness.BUSSINESS_REGISTRATION,MyConstant.Bussiness.BUSSINESS_UNDERWAY});
+		Iterator<?> iterator = findResult.listIterator();
+		CEntityBussiness result = null;
+		if (iterator.hasNext()) {
+			result = (CEntityBussiness) iterator.next();
+		}
+		return result; 
+		
+	}
+	/**
+	 * 序号：bussiness:9
+	 * 功能：按出差号获得出差详情(本表字段)
+	 * 参数：CEntityBussiness(BussinessId) 
+	 * 返回值:CEntityBussiness
+	 */
+	public CEntityBussiness queryBussinessByBussinessId(CEntityBussiness cEntityBussiness){
+		String hql = "select new CEntityBussiness(bussiness.BussinessId, bussiness.BussinessSideAddress,bussiness.BussinessContent,bussiness.BussinessRegisterTime,bussiness.BussinessInAddress, bussiness.BussinessInTime,bussiness.BussinessOutAddress, bussiness.BussinessOutTime,bussiness.BussinessReturnTime,bussiness.BussinessState) from com.mm.entity.CEntityBussiness as bussiness where BussinessId=?";
+		List<?> findResult=this.getHibernateTemplate().find(hql,cEntityBussiness.getM_iBussinessId());
+		Iterator<?> iterator = findResult.listIterator();
+		CEntityBussiness result = null;
+		if (iterator.hasNext()) {
+			result = (CEntityBussiness) iterator.next();
+		}
+		return result; 
+	}
+		
+	
+}

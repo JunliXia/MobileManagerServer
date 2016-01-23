@@ -1,0 +1,242 @@
+package com.mm.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import com.mm.tool.MyOpcode;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
+//客户
+@Entity
+@Table(name = "Client")
+public class CEntityClient {
+	private int m_iClientId; // 客户号,主键，自增
+	private String m_sClientName; // 客户名
+	private String m_sClientCompany;// 客户公司名
+	private String m_sClientPhone; // 客户号码
+	private String m_sClientArea; // 客户区域
+	private String m_sClientAddress;// 客户地址
+	private int m_iClientState; // 客户状态(0未分配，1已分配，2未审核，3已删除(指撤销，不在数据库中删除记录))
+
+	public CEntityClient() {
+	}
+
+	public static class Builder {
+		private int m_iClientId; // 客户号,主键，自增
+		private String m_sClientName; // 客户名
+		private String m_sClientCompany;// 客户公司名
+		private String m_sClientPhone; // 客户号码
+		private String m_sClientArea; // 客户区域
+		private String m_sClientAddress;// 客户地址
+		private int m_iClientState = 0; // 客户状态(0未分配，1已分配，2未审核，3已删除(指撤销，不在数据库中删除记录))
+
+		public Builder() {
+		}
+
+		public Builder ClientId(int m_iClientId) {
+			this.m_iClientId = m_iClientId;
+			return this;
+		}
+
+		public Builder ClientName(String m_sClientName) {
+			this.m_sClientName = m_sClientName;
+			return this;
+		}
+
+		public Builder ClientCompany(String m_sClientCompany) {
+			this.m_sClientCompany = m_sClientCompany;
+			return this;
+		}
+
+		public Builder ClientPhone(String m_sClientPhone) {
+			this.m_sClientPhone = m_sClientPhone;
+			return this;
+		}
+
+		public Builder ClientArea(String m_sClientArea) {
+			this.m_sClientArea = m_sClientArea;
+			return this;
+		}
+
+		public Builder ClientAddress(String m_sClientAddress) {
+			this.m_sClientAddress = m_sClientAddress;
+			return this;
+		}
+
+		public Builder ClientState(int m_iClientState) {
+			this.m_iClientState = m_iClientState;
+			return this;
+		}
+
+		public CEntityClient build() {
+			return new CEntityClient(this);
+		}
+
+	}
+
+	private CEntityClient(Builder b) {
+		m_iClientId = b.m_iClientId;
+		m_sClientName = b.m_sClientName;
+		m_sClientCompany = b.m_sClientCompany;
+		m_sClientPhone = b.m_sClientPhone;
+		m_sClientArea = b.m_sClientArea;
+		m_sClientAddress = b.m_sClientAddress;
+		m_iClientState = b.m_iClientState;
+	}
+
+	public static class BuildJsonObject {
+		private JSONObject outjson = new JSONObject();
+
+		public BuildJsonObject() {
+		}
+
+		public BuildJsonObject ClientId(int m_iClientId) {
+			outjson.put(MyOpcode.Client.ClientId, m_iClientId);
+			return this;
+		}
+		public BuildJsonObject ClientName(String m_sClientName){
+			outjson.put(MyOpcode.Client.ClientName, m_sClientName);
+			return this;
+		}
+		
+		public BuildJsonObject ClientCompany(String m_sClientCompany) {
+			outjson.put(MyOpcode.Client.ClientCompany, m_sClientCompany);
+			return this;
+		}
+
+		public BuildJsonObject ClientPhone(String m_sClientPhone) {
+			outjson.put(MyOpcode.Client.ClientPhone, m_sClientPhone);
+			return this;
+		}
+
+		public BuildJsonObject ClientArea(String m_sClientArea) {
+			outjson.put(MyOpcode.Client.ClientArea, m_sClientArea);
+			return this;
+		}
+
+		public BuildJsonObject ClientAddress(String m_sClientAddress) {
+			outjson.put(MyOpcode.Client.ClientAddress, m_sClientAddress);
+			return this;
+		}
+
+		public BuildJsonObject ClientState(int m_iClientState) {
+			outjson.put(MyOpcode.Client.ClientState, m_iClientState);
+			return this;
+		}
+
+		public BuildJsonObject Operation(int operation) {
+			outjson.put(MyOpcode.Operation.OPERATION, operation);
+			return this;
+		}
+
+		public BuildJsonObject Check(boolean check) {
+			outjson.put(MyOpcode.Operation.CHECK, check);
+			return this;
+		}
+
+		public BuildJsonObject MyJSONArray(JSONArray array) {
+			outjson.put(MyOpcode.Client.ClientList, array);
+			return this;
+		}
+
+		public BuildJsonObject ToSingle(CEntityClient cEntityClient) {
+			outjson.put(MyOpcode.Client.ClientId, cEntityClient.m_iClientId);
+			outjson.put(MyOpcode.Client.ClientName,cEntityClient.m_sClientName);
+			outjson.put(MyOpcode.Client.ClientCompany, cEntityClient.m_sClientCompany);
+			outjson.put(MyOpcode.Client.ClientPhone, cEntityClient.m_sClientPhone);
+			outjson.put(MyOpcode.Client.ClientArea,cEntityClient.m_sClientArea);
+			outjson.put(MyOpcode.Client.ClientAddress, cEntityClient.m_sClientAddress);
+			outjson.put(MyOpcode.Client.ClientState, cEntityClient.m_iClientState);
+
+			return this;
+		}
+
+		public JSONObject build() {
+			return outjson;
+		}
+	}
+
+	@Id
+	@GeneratedValue
+	@Column(name = "ClientId")
+	public int getM_iClientId() {
+		return m_iClientId;
+	}
+
+	@Column(name = "ClientState")
+	public int getM_iClientState() {
+		return m_iClientState;
+	}
+
+	@Column(name = "ClientAddress")
+	public String getM_sClientAddress() {
+		return m_sClientAddress;
+	}
+
+	@Column(name = "ClientArea")
+	public String getM_sClientArea() {
+		return m_sClientArea;
+	}
+
+	@Column(name = "ClientCompany")
+	public String getM_sClientCompany() {
+		return m_sClientCompany;
+	}
+
+	@Column(name = "ClientName")
+	public String getM_sClientName() {
+		return m_sClientName;
+	}
+
+	@Column(name = "ClientPhone")
+	public String getM_sClientPhone() {
+		return m_sClientPhone;
+	}
+
+	public void setM_iClientId(int mIClientId) {
+		m_iClientId = mIClientId;
+	}
+
+	public void setM_iClientState(int mIClientState) {
+		m_iClientState = mIClientState;
+	}
+
+	public void setM_sClientAddress(String mSClientAddress) {
+		m_sClientAddress = mSClientAddress;
+	}
+
+	public void setM_sClientArea(String mSClientArea) {
+		m_sClientArea = mSClientArea;
+	}
+
+	public void setM_sClientCompany(String mSClientCompany) {
+		m_sClientCompany = mSClientCompany;
+	}
+
+	public void setM_sClientName(String mSClientName) {
+		m_sClientName = mSClientName;
+	}
+
+	public void setM_sClientPhone(String mSClientPhone) {
+		m_sClientPhone = mSClientPhone;
+	}
+
+	@Override
+	public String toString() {
+		return "CEntityClient [m_iClientId=" + m_iClientId
+				+ ", m_iClientState=" + m_iClientState + ", m_sClientAddress="
+				+ m_sClientAddress + ", m_sClientArea=" + m_sClientArea
+				+ ", m_sClientCompany=" + m_sClientCompany + ", m_sClientName="
+				+ m_sClientName + ", m_sClientPhone=" + m_sClientPhone + "]";
+	}
+
+	
+	
+	
+	
+}

@@ -1,0 +1,307 @@
+package com.mm.dao;
+
+import java.sql.SQLException;
+import java.util.Iterator;
+import java.util.List;
+
+import org.apache.commons.collections.map.HashedMap;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.springframework.dao.DataAccessException;
+import org.springframework.orm.hibernate3.HibernateCallback;
+import org.springframework.stereotype.Component;
+
+import com.mm.entity.CEntityAttendance;
+import com.mm.entity.CEntityEmployee;
+import com.mm.entityarray.CEntityAttendanceArray;
+import com.mm.tool.MyOpcode;
+
+@Component("cDaoAttendance")
+public class CDaoAttendance extends SuperDAO {
+
+	
+	/**
+	 * 序号：attendance:1
+	 * 功能：批量插入考勤表
+	 * 参数：cEntityAttendanceArray
+	 * 返回值:无
+	 */
+	public void saveAttendances(
+			final CEntityAttendanceArray cEntityAttendanceArray) {
+		this.getHibernateTemplate().execute(new HibernateCallback() {
+
+			public Object doInHibernate(Session session)
+					throws HibernateException, SQLException {
+				// TODO Auto-generated method stub
+				for (int i = 0; i < cEntityAttendanceArray.getSize(); i++) {
+					session.save(cEntityAttendanceArray.getItem(i));
+					if (i % 10 == 0) {
+						session.flush();
+						session.clear();
+					}
+				}
+				return true;
+			}
+		});
+	}
+	
+	
+	/**
+	 * 序号：attendance:2
+	 * 功能：按员工号及当日日期进行签到
+	 * 参数：cEntityEmployee(EmployeeId),cEntityAttendance(AttendanceRegisterTime,AttendanceDate)
+	 * 返回值:boolean
+	 */
+	public boolean updateAttendanceRegisterTimeByEmployeeIdAndAttendanceDate(CEntityAttendance cEntityAttendance,CEntityEmployee cEntityEmployee){
+		String hql="update com.mm.entity.CEntityAttendance as attendance set AttendanceRegisterTime=? where AttendanceDate=? and EmployeeId=?";
+		boolean bisUpdate=false;
+		
+		try {
+			this.getHibernateTemplate().bulkUpdate(hql,new Object[]{cEntityAttendance.getM_sAttendanceRegisterTime(),cEntityAttendance.getM_sAttendanceDate(),cEntityEmployee.getM_iEmployeeId()});
+			bisUpdate=true;
+		} catch (DataAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return bisUpdate;
+	}
+	
+	/**
+	 * 序号：attendance:3
+	 * 功能：按员工号及当日日期进行签退
+	 * 参数：cEntityEmployee(EmployeeId),cEntityAttendance(AttendanceSignoutTime,AttendanceDate)
+	 * 返回值:boolean
+	 */
+	public boolean updateAttendanceSignoutTimeByEmployeeIdAndAttendanceDate(CEntityAttendance cEntityAttendance,CEntityEmployee cEntityEmployee){
+		String hql="update com.mm.entity.CEntityAttendance as attendance set AttendanceSignoutTime=? where AttendanceDate=? and EmployeeId=?";
+		boolean bisUpdate=false;
+		
+		try {
+			this.getHibernateTemplate().bulkUpdate(hql,new Object[]{cEntityAttendance.getM_sAttendanceSignoutTime(),cEntityAttendance.getM_sAttendanceDate(),cEntityEmployee.getM_iEmployeeId()});
+			bisUpdate=true;
+		} catch (DataAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return bisUpdate;
+	}
+	
+	/**
+	 * 序号：attendance:4
+	 * 功能：按日期获得所有的考勤
+	 * 参数：cEntityAttendance(AttendanceDate)
+	 * 返回值:CEntityAttendanceArray
+	 */
+	@SuppressWarnings("unchecked")
+	public CEntityAttendanceArray queryAllAttendanceByAttendanceDate(CEntityAttendance cEntityAttendance){
+		String hql="from com.mm.entity.CEntityAttendance as attendance where AttendanceDate=?";
+		List<?> findResult=this.getHibernateTemplate().find(hql,cEntityAttendance.getM_sAttendanceDate());
+		
+		CEntityAttendanceArray cEntityAttendanceArray=new CEntityAttendanceArray((List<CEntityAttendance>) findResult);
+		
+		return cEntityAttendanceArray;
+	}
+	
+	
+	/**
+	 * 序号：attendance:5
+	 * 功能：按员工号和当日日期查询考勤
+	 * 参数：cEntityAttendance(AttendanceDate),CEntityEmployee(EmployeeId)
+	 * 返回值:CEntityAttendance
+	 */
+	public CEntityAttendance queryAttendanceByEmployeeIdAndAttendanceDate(CEntityAttendance cEntityAttendance,CEntityEmployee cEntityEmployee){
+		String hql="select new CEntityAttendance(attendance.m_iAttendanceId,attendance.m_sAttendanceRegisterTime,attendance.m_sAttendanceSignoutTime,attendance.m_sAttendanceDate) from com.mm.entity.CEntityAttendance as attendance where AttendanceDate=? and EmployeeId=?";
+		List<?> findResult=this.getHibernateTemplate().find(hql,new Object[]{cEntityAttendance.getM_sAttendanceDate(),cEntityEmployee.getM_iEmployeeId()});
+		
+
+		Iterator<?> iterator = findResult.listIterator();
+		CEntityAttendance result = null;
+		if (iterator.hasNext()) {
+			result = (CEntityAttendance) iterator.next();
+		}
+		return result; 
+	}
+	
+//	public static void main(String[] args) {
+//		CEntityAttendance cEntityAttendance=new CEntityAttendance.Builder().AttendanceDate("2015/10/30").build();
+//		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext(
+//		"applicationContext.xml");
+//		CDaoAttendance tt = (CDaoAttendance) ctx.getBean("cDaoAttendance");
+//		tt.queryAllAttendanceWithEmployeeDateByAttendaceData(cEntityAttendance);
+//	}
+	
+	/**
+	 * 序号：attendance:6
+	 * 功能：按日期获得所有的考勤数据，含员工号，员工账号，员工名
+	 * 参数：cEntityAttendance(AttendanceDate)
+	 * 返回值:HashedMap
+	 */
+	@SuppressWarnings("unchecked")
+	public HashedMap queryAllAttendanceWithEmployeeDateByAttendaceData(CEntityAttendance cEntityAttendance){
+		String hql="select attendance.m_iAttendanceId,attendance.m_sAttendanceRegisterTime,attendance.m_sAttendanceSignoutTime,employee.m_iEmployeeId ,employee.m_sEmployeeAccount,employee.m_sEmployeeName from com.mm.entity.CEntityAttendance as attendance left join attendance.cEntityEmployee , com.mm.entity.CEntityEmployee as employee where attendance.m_sAttendanceDate=? and attendance.cEntityEmployee.m_iEmployeeId=employee.m_iEmployeeId ";
+		List findResult=this.getHibernateTemplate().find(hql,cEntityAttendance.getM_sAttendanceDate());
+		
+		
+		Iterator it = findResult.iterator();  
+		HashedMap maps=new HashedMap();
+		int i=0;
+		 while (it.hasNext()) {       
+		    Object[] tuple = (Object[]) it.next();
+		    HashedMap map=new HashedMap();
+		    CEntityAttendance mapattendance=new CEntityAttendance.Builder().AttendanceId((Integer)tuple[0]).AttendanceRegisterTime((String)tuple[1]).AttendanceSignoutTime((String)tuple[2]).build();
+		    CEntityEmployee mapEmployee=new CEntityEmployee.Builder().EmployeeId((Integer)tuple[3]).EmployeeAccount((String)tuple[4]).EmployeeName((String)tuple[5]).build();
+		    map.put(MyOpcode.Attendance.Attendance, mapattendance);
+		    map.put(MyOpcode.Employee.Employee, mapEmployee);
+		    maps.put(i, map);
+		    i++;
+		 }    
+		 
+
+		 return maps;
+	}
+	
+	/**
+	 * 序号：attendance:7
+	 * 功能：按员工号查询所有考勤记录
+	 * 参数：CEntityEmployee(EmployeeId)
+	 * 返回值:CEntityAttendanceArray
+	 */
+	@SuppressWarnings("unchecked")
+	public CEntityAttendanceArray queryAllEmployeeAttendance(CEntityEmployee cEntityEmployee){
+		String hql="select new CEntityAttendance(attendance.m_iAttendanceId,attendance.m_sAttendanceRegisterTime,attendance.m_sAttendanceSignoutTime,attendance.m_sAttendanceDate) from com.mm.entity.CEntityAttendance as attendance where  EmployeeId=? order by AttendanceDate desc";
+		List<?> findResult=this.getHibernateTemplate().find(hql,cEntityEmployee.getM_iEmployeeId());
+		CEntityAttendanceArray cEntityAttendanceArray=new CEntityAttendanceArray((List<CEntityAttendance>) findResult);
+
+		return cEntityAttendanceArray; 
+	}
+	
+	
+	/**
+	 * 序号：attendance:8
+	 * 功能：按员工号和日期查询考勤记录
+	 * 参数：CEntityEmployee(EmployeeId),CEntityAttendance(AttendanceDate)
+	 * 返回值:CEntityAttendanceArray
+	 */
+	@SuppressWarnings("unchecked")
+	public CEntityAttendanceArray queryAtteandenByEmployeeIdandAttendanceOldDate(CEntityEmployee cEntityEmployee,CEntityAttendance cEntityAttendance){
+		String hql="select new CEntityAttendance(attendance.m_iAttendanceId,attendance.m_sAttendanceRegisterTime,attendance.m_sAttendanceSignoutTime,attendance.m_sAttendanceDate) from com.mm.entity.CEntityAttendance as attendance where  EmployeeId=? and AttendanceDate=?";
+		List<?> findResult=this.getHibernateTemplate().find(hql,new Object[]{cEntityEmployee.getM_iEmployeeId(),cEntityAttendance.getM_sAttendanceDate()});
+		CEntityAttendanceArray cEntityAttendanceArray=new CEntityAttendanceArray((List<CEntityAttendance>) findResult);
+		return cEntityAttendanceArray;
+	}
+	
+	
+	/**
+	 * 序号：attendance:9
+	 * 功能：按员工名和日期查询考勤记录
+	 * 参数：CEntityEmployee(EmployeeName),CEntityAttendance(AttendanceDate)
+	 * 返回值:HashedMap
+	 */
+	@SuppressWarnings("unchecked")
+	public HashedMap queryAllAttendanceWithEmployeeDateByEmployeeName(CEntityEmployee cEntityEmployee,CEntityAttendance cEntityAttendance){
+		String hql="select attendance.m_iAttendanceId,attendance.m_sAttendanceRegisterTime,attendance.m_sAttendanceSignoutTime,employee.m_iEmployeeId ,employee.m_sEmployeeAccount,employee.m_sEmployeeName from com.mm.entity.CEntityAttendance as attendance left join attendance.cEntityEmployee , com.mm.entity.CEntityEmployee as employee where attendance.m_sAttendanceDate=? and attendance.cEntityEmployee.m_iEmployeeId=employee.m_iEmployeeId and employee.m_sEmployeeName=? ";
+		List findResult=this.getHibernateTemplate().find(hql,new Object[]{cEntityAttendance.getM_sAttendanceDate(),cEntityEmployee.getM_sEmployeeName()});
+		Iterator it = findResult.iterator();  
+		HashedMap maps=new HashedMap();
+		int i=0;
+		 while (it.hasNext()) {       
+		    Object[] tuple = (Object[]) it.next();
+		    HashedMap map=new HashedMap();
+		    CEntityAttendance mapattendance=new CEntityAttendance.Builder().AttendanceId((Integer)tuple[0]).AttendanceRegisterTime((String)tuple[1]).AttendanceSignoutTime((String)tuple[2]).build();
+		    CEntityEmployee mapEmployee=new CEntityEmployee.Builder().EmployeeId((Integer)tuple[3]).EmployeeAccount((String)tuple[4]).EmployeeName((String)tuple[5]).build();
+		    map.put(MyOpcode.Attendance.Attendance, mapattendance);
+		    map.put(MyOpcode.Employee.Employee, mapEmployee);
+		    maps.put(i, map);
+		    i++;
+		 }    
+		 
+
+		 return maps;
+	}
+	
+	
+
+	/**
+	 * 序号：attendance:10
+	 * 功能：按年份获取所有未删员工的员工号，员工账号，员工名，考勤次数(签到次数，签退次数)，迟到次数（签到迟到次数，签退迟到次数），漏签次数（签到迟到漏签次数，签退漏签次数）
+	 * 参数：year(yyyy)
+	 * 返回值:List
+	 */
+	@SuppressWarnings("unchecked")
+	public List queryStatisticalByYear(String year){
+		String hql="select employee.m_iEmployeeId,employee.m_sEmployeeAccount ,employee.m_sEmployeeName,sum(case when attendance.m_sAttendanceRegisterTime is not null or attendance.m_sAttendanceRegisterTime!='' then 1 else 0 end),sum(case when attendance.m_sAttendanceSignoutTime is not null or attendance.m_sAttendanceSignoutTime!='' then 1 else 0  end),sum(case when attendance.m_sAttendanceRegisterTime not  between '08:30' and '09:00' then 1 else 0  end) ,sum(case when attendance.m_sAttendanceSignoutTime not   between '16:30' and '17:00' then 1 else 0  end),sum(case when attendance.m_sAttendanceRegisterTime is  null or attendance.m_sAttendanceRegisterTime='' then 1 else 0 end),sum(case when attendance.m_sAttendanceSignoutTime is null or attendance.m_sAttendanceSignoutTime='' then 1 else 0 end)  from com.mm.entity.CEntityEmployee as employee ,com.mm.entity.CEntityAttendance as attendance where attendance.cEntityEmployee.m_iEmployeeId=employee.m_iEmployeeId and employee.m_iEmployeeType!=4 and attendance.m_sAttendanceDate like '%"+year+"%' group by employee.m_iEmployeeId ";
+		List findResult=this.getHibernateTemplate().find(hql);
+		return findResult;
+	}
+	
+	
+//	public static void main(String[] args) {
+//	ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext(
+//	"applicationContext.xml");
+//	CDaoAttendance tt = (CDaoAttendance) ctx.getBean("cDaoAttendance");
+//	tt.queryStatisticalByYearAndMonth("2015","12");
+//}
+	/**
+	 * 序号：attendance:11
+	 * 功能：按年份，月份获取所有未删员工的员工号，员工账号，员工名，考勤次数(签到次数，签退次数)，迟到次数（签到迟到次数，签退迟到次数），漏签次数（签到迟到漏签次数，签退漏签次数）
+	 * 参数：year(yyyy)，month(mm)
+	 * 返回值:List
+	 */
+	@SuppressWarnings("unchecked")
+	public List queryStatisticalByYearAndMonth(String year,String month){
+		String mix=year+"/"+month;
+		String hql="select employee.m_iEmployeeId,employee.m_sEmployeeAccount ,employee.m_sEmployeeName,sum(case when attendance.m_sAttendanceRegisterTime is not null or attendance.m_sAttendanceRegisterTime!='' then 1 else 0 end),sum(case when attendance.m_sAttendanceSignoutTime is not null or attendance.m_sAttendanceSignoutTime!='' then 1 else 0  end),sum(case when attendance.m_sAttendanceRegisterTime not  between '08:30' and '09:00' then 1 else 0  end) ,sum(case when attendance.m_sAttendanceSignoutTime not   between '16:30' and '17:00' then 1 else 0  end),sum(case when attendance.m_sAttendanceRegisterTime is  null or attendance.m_sAttendanceRegisterTime='' then 1 else 0 end),sum(case when attendance.m_sAttendanceSignoutTime is null or attendance.m_sAttendanceSignoutTime='' then 1 else 0 end)  from com.mm.entity.CEntityEmployee as employee ,com.mm.entity.CEntityAttendance as attendance where attendance.cEntityEmployee.m_iEmployeeId=employee.m_iEmployeeId and employee.m_iEmployeeType!=4 and attendance.m_sAttendanceDate like '%"+mix+"%' group by employee.m_iEmployeeId ";
+		List findResult=this.getHibernateTemplate().find(hql);
+		Iterator it=findResult.iterator();
+		while (it.hasNext()) {       
+			Object[] tuple = (Object[]) it.next();
+			System.out.println((Integer)tuple[0]+"---"+(String)tuple[1]+"---"+(String)tuple[2]+"---"+(Long)tuple[3]+"---"+(Long)tuple[4]+"---"+(Long)tuple[5]+"---"+(Long)tuple[6]+"---"+(Long)tuple[7]+"---"+(Long)tuple[8]);
+		 }   
+		return findResult;
+	}
+	
+	
+	/**
+	 * 序号：attendance:12
+	 * 功能：按员工名，年份，月份获取所有未删员工的员工号，员工账号，员工名，考勤次数(签到次数，签退次数)，迟到次数（签到迟到次数，签退迟到次数），漏签次数（签到迟到漏签次数，签退漏签次数）
+	 * 参数：year(yyyy)，month(mm)，cEntityEmployee(EmployeeName)
+	 * 返回值:List
+	 */
+	@SuppressWarnings("unchecked")
+	public List queryStatisticalByYearMonthAndEmployeeName(CEntityEmployee cEntityEmployee,String year,String month){
+		//这里应该在Bll里写，哎，写了都写了。
+		String mix="";
+		if(!month.equals("全部")){
+			mix=year+"/"+month;
+		}else{
+			mix=year;
+		}
+		String hql="select employee.m_iEmployeeId,employee.m_sEmployeeAccount ,employee.m_sEmployeeName,sum(case when attendance.m_sAttendanceRegisterTime is not null or attendance.m_sAttendanceRegisterTime!='' then 1 else 0 end),sum(case when attendance.m_sAttendanceSignoutTime is not null or attendance.m_sAttendanceSignoutTime!='' then 1 else 0  end),sum(case when attendance.m_sAttendanceRegisterTime not  between '08:30' and '09:00' then 1 else 0  end) ,sum(case when attendance.m_sAttendanceSignoutTime not   between '16:30' and '17:00' then 1 else 0  end),sum(case when attendance.m_sAttendanceRegisterTime is  null or attendance.m_sAttendanceRegisterTime='' then 1 else 0 end),sum(case when attendance.m_sAttendanceSignoutTime is null or attendance.m_sAttendanceSignoutTime='' then 1 else 0 end)  from com.mm.entity.CEntityEmployee as employee ,com.mm.entity.CEntityAttendance as attendance where attendance.cEntityEmployee.m_iEmployeeId=employee.m_iEmployeeId and employee.m_sEmployeeName=? and attendance.m_sAttendanceDate like '%"+mix+"%' group by employee.m_iEmployeeId ";
+		List findResult=this.getHibernateTemplate().find(hql,cEntityEmployee.getM_sEmployeeName());
+		Iterator it=findResult.iterator();
+		while (it.hasNext()) {       
+			Object[] tuple = (Object[]) it.next();
+			System.out.println((Integer)tuple[0]+"---"+(String)tuple[1]+"---"+(String)tuple[2]+"---"+(Long)tuple[3]+"---"+(Long)tuple[4]+"---"+(Long)tuple[5]+"---"+(Long)tuple[6]+"---"+(Long)tuple[7]+"---"+(Long)tuple[8]);
+		 }   
+		return findResult;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           http://www.springframework.org/schema/tx 
+           http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+	<context:annotation-config />
+	<context:component-scan base-package="com.mm" />
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+
+
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/mobilemanager" />
+		<property name="username" value="root" />
+		<property name="password" value="123456" />
+	</bean>
+
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan">
+			<list>
+				<value>com.mm.entity</value>
+
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.order_updates">true</prop>
+				<prop key="hibernate.cache.use_second_level_cache">true</prop>
+         		<prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop>
+         		<prop key="hibernate.cache.use_query_cache">false</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="txManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!--	<tx:annotation-driven transaction-manager="txManager" />-->
+
+
+	<!--	配置事务管理器	-->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	<!--  配置事务管理的模版：简化事务管理的代码  -->
+	<bean id="transactionTemplate"
+		class="org.springframework.transaction.support.TransactionTemplate">
+		<property name="transactionManager" ref="transactionManager"></property>
+	</bean>
+
+
+</beans>

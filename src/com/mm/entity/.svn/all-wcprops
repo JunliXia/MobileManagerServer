@@ -1,0 +1,119 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/MobileManagerServer/!svn/ver/2/MobileManagerServer/src/com/mm/entity
+END
+CEntityMissionDelay.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/MobileManagerServer/!svn/ver/16/MobileManagerServer/src/com/mm/entity/CEntityMissionDelay.java
+END
+CEntityClientSubmit.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/MobileManagerServer/!svn/ver/2/MobileManagerServer/src/com/mm/entity/CEntityClientSubmit.java
+END
+CEntityBussinessUndo.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/MobileManagerServer/!svn/ver/16/MobileManagerServer/src/com/mm/entity/CEntityBussinessUndo.java
+END
+CEntityAttendance.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/MobileManagerServer/!svn/ver/2/MobileManagerServer/src/com/mm/entity/CEntityAttendance.java
+END
+CEntityMissionUndo.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/MobileManagerServer/!svn/ver/18/MobileManagerServer/src/com/mm/entity/CEntityMissionUndo.java
+END
+CEntityVisitPlan.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/MobileManagerServer/!svn/ver/11/MobileManagerServer/src/com/mm/entity/CEntityVisitPlan.java
+END
+CEntityVisitDelay.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/MobileManagerServer/!svn/ver/12/MobileManagerServer/src/com/mm/entity/CEntityVisitDelay.java
+END
+CEntityBussiness.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/MobileManagerServer/!svn/ver/2/MobileManagerServer/src/com/mm/entity/CEntityBussiness.java
+END
+CEntityClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/MobileManagerServer/!svn/ver/2/MobileManagerServer/src/com/mm/entity/CEntityClient.java
+END
+CEntityMissionConclusion.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/MobileManagerServer/!svn/ver/16/MobileManagerServer/src/com/mm/entity/CEntityMissionConclusion.java
+END
+CEntityEmployee.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/MobileManagerServer/!svn/ver/2/MobileManagerServer/src/com/mm/entity/CEntityEmployee.java
+END
+CEntityAdministrator.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/MobileManagerServer/!svn/ver/2/MobileManagerServer/src/com/mm/entity/CEntityAdministrator.java
+END
+CEntityMission.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/MobileManagerServer/!svn/ver/18/MobileManagerServer/src/com/mm/entity/CEntityMission.java
+END
+CEntityNotice.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/MobileManagerServer/!svn/ver/2/MobileManagerServer/src/com/mm/entity/CEntityNotice.java
+END
+CEntitySuggest.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/MobileManagerServer/!svn/ver/2/MobileManagerServer/src/com/mm/entity/CEntitySuggest.java
+END
+CEntityBussinessBadrecord.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/MobileManagerServer/!svn/ver/2/MobileManagerServer/src/com/mm/entity/CEntityBussinessBadrecord.java
+END
+CEntityVisitUndo.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/MobileManagerServer/!svn/ver/2/MobileManagerServer/src/com/mm/entity/CEntityVisitUndo.java
+END
+CEntityVisitConclusion.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/MobileManagerServer/!svn/ver/12/MobileManagerServer/src/com/mm/entity/CEntityVisitConclusion.java
+END
+CEntityBussinessActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/MobileManagerServer/!svn/ver/12/MobileManagerServer/src/com/mm/entity/CEntityBussinessActivity.java
+END

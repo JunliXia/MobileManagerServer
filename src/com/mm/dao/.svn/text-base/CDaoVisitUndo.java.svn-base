@@ -1,0 +1,85 @@
+package com.mm.dao;
+
+import java.util.List;
+
+import org.springframework.dao.DataAccessException;
+import org.springframework.stereotype.Component;
+
+import com.mm.entity.CEntityVisitPlan;
+import com.mm.entity.CEntityVisitUndo;
+import com.mm.entityarray.CEntityVisitUndoArray;
+
+@Component("cDaoVisitUndo")
+public class CDaoVisitUndo extends SuperDAO{
+
+	/**
+	 * 序号：visitundo:1
+	 * 功能：增加一条拜访撤销
+	 * 参数：cEntityVisitPlan(VisitPlanId),cEntityVisitUndo(本表字段)
+	 * 返回值:CEntityVisitConclusionArray
+	 */
+	public boolean saveVisitUndo(CEntityVisitPlan cEntityVisitPlan,CEntityVisitUndo cEntityVisitUndo) {
+		CEntityVisitPlan findResult=(CEntityVisitPlan)this.getHibernateTemplate().get(CEntityVisitPlan.class, cEntityVisitPlan.getM_iVisitPlanId());
+		cEntityVisitUndo.setcEntityVisitPlan(findResult);
+		cEntityVisitUndo.setM_iVisitUndoRecallType(findResult.getM_iVisitPlanState());
+		boolean bisSave=false;
+		try {
+			this.getHibernateTemplate().save(cEntityVisitUndo);
+			bisSave=true;
+		} catch (DataAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return bisSave;
+	}
+	
+	/**
+	 * 序号：visitundo:2
+	 * 功能：获得所有的拜访撤销
+	 * 参数：无
+	 * 返回值:CEntityVisitUndoArray
+	 */
+	@SuppressWarnings("unchecked")
+	public CEntityVisitUndoArray queryAllVisitUndo() {
+		String hql="from com.mm.entity.CEntityVisitUndo as visitundo";
+		List<?> findResult=this.getHibernateTemplate().find(hql);
+		CEntityVisitUndoArray cEntityVisitUndoArray=new CEntityVisitUndoArray((List<CEntityVisitUndo>) findResult);
+ 		return cEntityVisitUndoArray;
+	}
+
+	/**
+	 * 序号：visitundo:3
+	 * 功能：按拜访撤销号修改拜访撤销的状态
+	 * 参数：cEntityVisitUndo(VisitUndoId)
+	 * 	   OperateState(MyConstant.VisitUndo.*)
+	 * 返回值:CEntityVisitUndoArray
+	 */
+	public boolean updateVisitUndoStateByVisitUndoId(CEntityVisitUndo cEntityVisitUndo,int OperateState){
+		String hql="update com.mm.entity.CEntityVisitUndo as visitundo set VisitUndoType=? where VisitUndoId=?";
+		boolean bisUpdate=false;
+		try {
+			this.getHibernateTemplate().bulkUpdate(hql,new Object[]{OperateState,cEntityVisitUndo.getM_iVisitUndoId()});
+			bisUpdate=true;
+		} catch (DataAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return bisUpdate;
+	}
+	
+	
+	/**
+	 * 序号：visitundo:4
+	 * 功能：根据任务撤销号获得任务撤销
+	 * 参数：cEntityVisitUndo(VisitUndoId)
+	 * 返回值:CEntityVisitUndo
+	 */
+	public CEntityVisitUndo queryVisitUndoByVisitUndoId(CEntityVisitUndo cEntityVisitUndo){
+		CEntityVisitUndo findRusult=(CEntityVisitUndo)this.getHibernateTemplate().get(CEntityVisitUndo.class,cEntityVisitUndo.getM_iVisitUndoId());
+		return findRusult;
+	}
+	
+	
+}

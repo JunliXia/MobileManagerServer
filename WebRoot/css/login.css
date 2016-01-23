@@ -1,0 +1,68 @@
+@CHARSET "UTF-8";
+body{
+margin:0px;
+font-family:Microsoft YaHei;
+
+}
+
+.all{
+background:url(../pic/login.jpg);
+background-size:100% 100%;
+background-repeat:no-repeat;
+height:100%;
+width:100%;
+}
+
+.title{
+text-align:center;
+font-size: 50;
+color: white;
+font-family: fantasy;
+word-spacing:5px;
+background: rgba(0,0,0,0.5);
+padding: 5px;
+}
+font{
+color: white;
+font-size: 20px;
+font-weight: bold;
+}
+.login{
+text-align: center;
+margin-top: 100px;
+
+}
+
+.name,.pass{
+margin:20px;
+text-align: center;
+
+
+}
+.name input{
+
+border: 0px solid  rgba(0,0,0,0.5);
+height: 30px;
+width: 200px;
+}
+
+
+.pass input{
+height: 30px;
+width: 200px;
+
+border: 0px solid  rgba(0,0,0,0.5);
+}
+
+button{
+background: rgb(61,38,38);
+word-spacing:10px;
+border: none;
+width: 260px;
+color: white;
+height: 30px;
+font-size: 20px;
+margin-top: 10px;
+font-weight: bold;
+cursor:pointer;
+}

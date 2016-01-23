@@ -1,0 +1,97 @@
+package com.mm.servlet;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Iterator;
+import java.util.Map;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.collections.map.HashedMap;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
+import com.mm.bll.IBllFrame;
+import com.mm.entity.CEntityAttendance;
+import com.mm.entity.CEntityEmployee;
+import com.mm.tool.MyOpcode;
+import com.mm.tool.MySpring;
+//获得所有的考勤信息
+@SuppressWarnings("serial")
+public class WGetAllAttendServlet extends HttpServlet {
+
+	@SuppressWarnings("unchecked")
+	public void service(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		response.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset = utf-8");
+		
+		String AttendanceDate=new String(request.getParameter(MyOpcode.Attendance.AttendanceDate).getBytes("ISO-8859-1"),"utf-8");
+	
+		
+		PrintWriter out = response.getWriter();
+		MySpring context=MySpring.getInstance();
+		IBllFrame iBllFrame=(IBllFrame)context.getContext().getBean("cBllFrameImpl");
+	
+		
+		CEntityAttendance cEntityAttendance=new CEntityAttendance.Builder().AttendanceDate(AttendanceDate).build();
+		
+		long startTime=System.currentTimeMillis();   //获取开始时间
+		HashedMap findResult=iBllFrame.queryAllAttendanceWithEmployeeDateByAttendaceData(cEntityAttendance);
+		long endTime=System.currentTimeMillis();   //获取开始时间
+		System.out.println(endTime-startTime);
+		
+		
+		long startTime1=System.currentTimeMillis();   //获取开始时间
+		JSONObject outjson = new JSONObject();
+		if(findResult!=null){
+			outjson.put(MyOpcode.Operation.CHECK, true);
+		}else{
+			outjson.put(MyOpcode.Operation.CHECK, false);
+		}
+		JSONArray jsonArray = new JSONArray();
+		Iterator ite=findResult.entrySet().iterator();
+		while(ite.hasNext()){
+			Map.Entry entry=(Map.Entry)ite.next();
+//			Object key=entry.getKey();
+			Object value=entry.getValue();
+			HashedMap map=(HashedMap)value;
+			CEntityAttendance mapAttendance=(CEntityAttendance)map.get(MyOpcode.Attendance.Attendance);
+			CEntityEmployee mapEmployee=(CEntityEmployee)map.get(MyOpcode.Employee.Employee);
+			
+			jsonArray.add(toJSON(mapAttendance,mapEmployee));
+		}
+		
+		outjson.put(MyOpcode.Attendance.AttendanceList, jsonArray);
+		System.out.println(outjson);
+		
+		long endTime1=System.currentTimeMillis();   //获取开始时间
+		System.out.println(endTime1-startTime1);
+		out.println(outjson);
+		out.flush();
+		out.close();
+	}
+
+	
+	private JSONObject toJSON(CEntityAttendance cEntityAttendance,CEntityEmployee cEntityEmployee){
+		JSONObject outjson = new JSONObject();
+		outjson=new CEntityAttendance.BuildJsonObject().AttendanceRegisterTime(cEntityAttendance.getM_sAttendanceRegisterTime()).AttendanceSignoutTime(cEntityAttendance.getM_sAttendanceSignoutTime()).build();
+		outjson.put(MyOpcode.Employee.EmployeeId,
+				cEntityEmployee.getM_iEmployeeId());
+		outjson.put(MyOpcode.Employee.EmployeeAccount,
+				cEntityEmployee.getM_sEmployeeAccount());
+		outjson.put(MyOpcode.Employee.EmployeeName,
+				cEntityEmployee.getM_sEmployeeName());
+		
+		return outjson;
+	}
+
+	
+	
+
+}

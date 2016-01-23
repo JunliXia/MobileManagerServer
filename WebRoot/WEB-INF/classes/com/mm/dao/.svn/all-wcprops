@@ -1,0 +1,137 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/MobileManagerServer/!svn/ver/2/MobileManagerServer/src/com/mm/dao
+END
+CDaoVisitPlan.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/MobileManagerServer/!svn/ver/17/MobileManagerServer/src/com/mm/dao/CDaoVisitPlan.java
+END
+CDaoFrameImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/MobileManagerServer/!svn/ver/18/MobileManagerServer/src/com/mm/dao/CDaoFrameImpl.java
+END
+CDaoVisitDelay.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/MobileManagerServer/!svn/ver/12/MobileManagerServer/src/com/mm/dao/CDaoVisitDelay.java
+END
+CDaoBussiness.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/MobileManagerServer/!svn/ver/16/MobileManagerServer/src/com/mm/dao/CDaoBussiness.java
+END
+CDaoClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/MobileManagerServer/!svn/ver/17/MobileManagerServer/src/com/mm/dao/CDaoClient.java
+END
+CDaoMissionConclusion.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/MobileManagerServer/!svn/ver/18/MobileManagerServer/src/com/mm/dao/CDaoMissionConclusion.java
+END
+CDaoEmployee.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/MobileManagerServer/!svn/ver/2/MobileManagerServer/src/com/mm/dao/CDaoEmployee.java
+END
+CDaoAdministrator.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/MobileManagerServer/!svn/ver/2/MobileManagerServer/src/com/mm/dao/CDaoAdministrator.java
+END
+CDaoMission.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/MobileManagerServer/!svn/ver/18/MobileManagerServer/src/com/mm/dao/CDaoMission.java
+END
+CDaoNotice.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/MobileManagerServer/!svn/ver/2/MobileManagerServer/src/com/mm/dao/CDaoNotice.java
+END
+CDaoSuggest.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/MobileManagerServer/!svn/ver/2/MobileManagerServer/src/com/mm/dao/CDaoSuggest.java
+END
+CDaoVisitUndo.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/MobileManagerServer/!svn/ver/2/MobileManagerServer/src/com/mm/dao/CDaoVisitUndo.java
+END
+CDaoBussinessBadrecord.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/MobileManagerServer/!svn/ver/16/MobileManagerServer/src/com/mm/dao/CDaoBussinessBadrecord.java
+END
+CDaoBussinessActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/MobileManagerServer/!svn/ver/16/MobileManagerServer/src/com/mm/dao/CDaoBussinessActivity.java
+END
+CDaoVisitConclusion.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/MobileManagerServer/!svn/ver/16/MobileManagerServer/src/com/mm/dao/CDaoVisitConclusion.java
+END
+SuperDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/MobileManagerServer/!svn/ver/2/MobileManagerServer/src/com/mm/dao/SuperDAO.java
+END
+CDaoMissionDelay.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/MobileManagerServer/!svn/ver/18/MobileManagerServer/src/com/mm/dao/CDaoMissionDelay.java
+END
+IDaoFrame.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/MobileManagerServer/!svn/ver/18/MobileManagerServer/src/com/mm/dao/IDaoFrame.java
+END
+CDaoClientSubmit.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/MobileManagerServer/!svn/ver/17/MobileManagerServer/src/com/mm/dao/CDaoClientSubmit.java
+END
+CDaoBussinessUndo.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/MobileManagerServer/!svn/ver/16/MobileManagerServer/src/com/mm/dao/CDaoBussinessUndo.java
+END
+CDaoAttendance.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/MobileManagerServer/!svn/ver/17/MobileManagerServer/src/com/mm/dao/CDaoAttendance.java
+END
+CDaoMissionUndo.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/MobileManagerServer/!svn/ver/18/MobileManagerServer/src/com/mm/dao/CDaoMissionUndo.java
+END

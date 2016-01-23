@@ -1,0 +1,1309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>com.mm.servlet.LoginServlet</servlet-class>
+	</servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>EnterAttendanceServlet</servlet-name>
+    <servlet-class>com.mm.servlet.EnterAttendanceServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>RegisterAttendanceServlet</servlet-name>
+    <servlet-class>com.mm.servlet.RegisterAttendanceServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SignoutAttendanceServlet</servlet-name>
+    <servlet-class>com.mm.servlet.SignoutAttendanceServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>GetWaitTakeMissionServlet</servlet-name>
+    <servlet-class>com.mm.servlet.GetWaitTakeMissionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>GetUnderWayMissionServlet</servlet-name>
+    <servlet-class>com.mm.servlet.GetUnderWayMissionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>GetCompleteMissionServlet</servlet-name>
+    <servlet-class>com.mm.servlet.GetCompleteMissionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>TakeMissionServlet</servlet-name>
+    <servlet-class>com.mm.servlet.TakeMissionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SubmitMissionConclusionServlet</servlet-name>
+    <servlet-class>com.mm.servlet.SubmitMissionConclusionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>EnterBussinessServlet</servlet-name>
+    <servlet-class>com.mm.servlet.EnterBussinessServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>EnterBussinessRecallServlet</servlet-name>
+    <servlet-class>com.mm.servlet.EnterBussinessRecallServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>GetBussinessDetailServlet</servlet-name>
+    <servlet-class>com.mm.servlet.GetBussinessDetailServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>GetNoStartVisitPlanServlet</servlet-name>
+    <servlet-class>com.mm.servlet.GetNoStartVisitPlanServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>GetUnderwayVisitPlanServlet</servlet-name>
+    <servlet-class>com.mm.servlet.GetUnderwayVisitPlanServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>GetCompleteVisitPlanServlet</servlet-name>
+    <servlet-class>com.mm.servlet.GetCompleteVisitPlanServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>GetClientInfoServlet</servlet-name>
+    <servlet-class>com.mm.servlet.GetClientInfoServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SubmitVisitConclusionServlet</servlet-name>
+    <servlet-class>com.mm.servlet.SubmitVisitConclusionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SubmitClientServlet</servlet-name>
+    <servlet-class>com.mm.servlet.SubmitClientServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>GetClientSubmitServlet</servlet-name>
+    <servlet-class>com.mm.servlet.GetClientSubmitServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>GetBussinessActivityServlet</servlet-name>
+    <servlet-class>com.mm.servlet.GetBussinessActivityServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>EnterCommunitionServlet</servlet-name>
+    <servlet-class>com.mm.servlet.EnterCommunitionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>FileUploadServlet</servlet-name>
+    <servlet-class>com.mm.servlet.FileUploadServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DownloadServlet</servlet-name>
+    <servlet-class>com.mm.servlet.DownloadServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>GetMissionConclusionServlet</servlet-name>
+    <servlet-class>com.mm.servlet.GetMissionConclusionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>RegisterBussinessServlet</servlet-name>
+    <servlet-class>com.mm.servlet.RegisterBussinessServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>InAddressBussinessServlet</servlet-name>
+    <servlet-class>com.mm.servlet.InAddressBussinessServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>OutAddressBussissServlet</servlet-name>
+    <servlet-class>com.mm.servlet.OutAddressBussissServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ReturnBussinessServlet</servlet-name>
+    <servlet-class>com.mm.servlet.ReturnBussinessServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>EnterNoticeServlet</servlet-name>
+    <servlet-class>com.mm.servlet.EnterNoticeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SubmitSuggestServlet</servlet-name>
+    <servlet-class>com.mm.servlet.SubmitSuggestServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>GetEmployeeClientServlet</servlet-name>
+    <servlet-class>com.mm.servlet.GetEmployeeClientServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WLoginServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WLoginServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WDelEmployeeServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WDelEmployeeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WUpdateEmployeeServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WUpdateEmployeeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WAddEmployeeServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WAddEmployeeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetAllAttendServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetAllAttendServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WQueryAllClientServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WQueryAllClientServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetWaittakeMissionServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetWaittakeMissionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetAllDelEmployeeServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetAllDelEmployeeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>GetAllEmployeeNameServlet</servlet-name>
+    <servlet-class>com.mm.servlet.GetAllEmployeeNameServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WSearchEmployeeServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WSearchEmployeeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetDepartmentEmployeeServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetDepartmentEmployeeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetEmployeeAllAttendanceServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetEmployeeAllAttendanceServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetEmployeeDateAttendanceServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetEmployeeDateAttendanceServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetAllEmployeeClientServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetAllEmployeeClientServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WUpdateClientServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WUpdateClientServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetEmployeeClientNameServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetEmployeeClientNameServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WSearchClientServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WSearchClientServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WCheckClientServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WCheckClientServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WCancleClientDistuServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WCancleClientDistuServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WDelClientServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WDelClientServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetEmployeeVisitPlanServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetEmployeeVisitPlanServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WUndoVisitPlanServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WUndoVisitPlanServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetVisitConclusionServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetVisitConclusionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WCheckVisitConclusionServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WCheckVisitConclusionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WDelayVisitPlanServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WDelayVisitPlanServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WAbandonVisitPlanServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WAbandonVisitPlanServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetAllEmployeeVisitConclusionServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetAllEmployeeVisitConclusionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetVisitConclusionDetailServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetVisitConclusionDetailServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetEmployeeDelayServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetEmployeeDelayServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetAllEmployeeMissionServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetAllEmployeeMissionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WUndoMissionServclet</servlet-name>
+    <servlet-class>com.mm.servlet.WUndoMissionServclet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetEmployeeMissionConclusionServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetEmployeeMissionConclusionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WCheckMissionConclusionServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WCheckMissionConclusionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WAbandonMissionServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WAbandonMissionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WDelayMissionServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WDelayMissionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetAllEmployeeMissionConclusionServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetAllEmployeeMissionConclusionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetMissionConclusionServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetMissionConclusionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetEmployeeMissionDelayServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetEmployeeMissionDelayServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetAllEmployeeBussinessServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetAllEmployeeBussinessServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WCheckBussinessHavaActivityServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WCheckBussinessHavaActivityServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WUndoBussinessServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WUndoBussinessServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WUndoBussinessUndoActivityServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WUndoBussinessUndoActivityServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WUndoBussinessUnbindActivityServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WUndoBussinessUnbindActivityServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetBussinessActivityServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetBussinessActivityServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WCheckBussinessServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WCheckBussinessServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WCheckBussinessWithBadRecallServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WCheckBussinessWithBadRecallServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetEmployeeBussinessBadRecallServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetEmployeeBussinessBadRecallServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WSearchAttendanceByEmNameServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WSearchAttendanceByEmNameServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetAttendanceStatisticalYearServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetAttendanceStatisticalYearServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetAttendanceStatisticalYearMonthServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetAttendanceStatisticalYearMonthServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetAttendanceStatisticalYearMonthEmployeeNameServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetAttendanceStatisticalYearMonthEmployeeNameServlet</servlet-class>
+  </servlet>
+ <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WAddClientServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WAddClientServlet</servlet-class>
+  </servlet>
+
+ <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetAllNodistributionClientServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetAllNodistributionClientServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetClientStatisticalNumberServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetClientStatisticalNumberServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WDistributionClientServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WDistributionClientServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetClientDistbutionServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetClientDistbutionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGerNocheckClientServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGerNocheckClientServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetAllDelClientServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetAllDelClientServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WCheckHasNoCheckClientServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WCheckHasNoCheckClientServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetAllMissionRuningServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetAllMissionRuningServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetMissionRunningNumberServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetMissionRunningNumberServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WAddMissionServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WAddMissionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetAllMissionDealServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetAllMissionDealServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetAllMissionCompleteServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetAllMissionCompleteServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetAllMissionUndoServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetAllMissionUndoServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetAllMissionConclusionWithEmployeeInfoServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetAllMissionConclusionWithEmployeeInfoServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetAllMissionDealyWithEmployeeInfoServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetAllMissionDealyWithEmployeeInfoServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WCheckHasNoDealMissionServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WCheckHasNoDealMissionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetAllVisitPlanRunningServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetAllVisitPlanRunningServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetClientUndistriInfoServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetClientUndistriInfoServlet</servlet-class>
+  </servlet>
+   <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetAllVisitPlanWaitDealServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetAllVisitPlanWaitDealServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetAllVisitPlanCompleteServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetAllVisitPlanCompleteServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetAllVisitUndoServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetAllVisitUndoServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetAllVisitConclusionServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetAllVisitConclusionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetAllVisitDealyInfoServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetAllVisitDealyInfoServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WCheckHasNoDealVisitPlanServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WCheckHasNoDealVisitPlanServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetAllBussinessRuningServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetAllBussinessRuningServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetBussinessAddOkEmployeeInfoServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetBussinessAddOkEmployeeInfoServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WAddBussinessServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WAddBussinessServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetAllBussinessWaitDealServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetAllBussinessWaitDealServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetAllBussinessCompleteServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetAllBussinessCompleteServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetAllBussinessUndoServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetAllBussinessUndoServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetAllBussinessBadInfoServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetAllBussinessBadInfoServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetEmployeeMissionBindServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetEmployeeMissionBindServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WBindBussinessServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WBindBussinessServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WUnBindBussinessServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WUnBindBussinessServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetEmployeeVisitPlanBindServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetEmployeeVisitPlanBindServlet</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/LoginServlet</url-pattern>
+	</servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>EnterAttendanceServlet</servlet-name>
+    <url-pattern>/EnterAttendanceServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>RegisterAttendanceServlet</servlet-name>
+    <url-pattern>/RegisterAttendanceServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SignoutAttendanceServlet</servlet-name>
+    <url-pattern>/SignoutAttendanceServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetWaitTakeMissionServlet</servlet-name>
+    <url-pattern>/GetWaitTakeMissionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetUnderWayMissionServlet</servlet-name>
+    <url-pattern>/GetUnderWayMissionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetCompleteMissionServlet</servlet-name>
+    <url-pattern>/GetCompleteMissionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TakeMissionServlet</servlet-name>
+    <url-pattern>/TakeMissionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SubmitMissionConclusionServlet</servlet-name>
+    <url-pattern>/SubmitMissionConclusionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>EnterBussinessServlet</servlet-name>
+    <url-pattern>/EnterBussinessServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>EnterBussinessRecallServlet</servlet-name>
+    <url-pattern>/EnterBussinessRecallServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetBussinessDetailServlet</servlet-name>
+    <url-pattern>/GetBussinessDetailServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetNoStartVisitPlanServlet</servlet-name>
+    <url-pattern>/GetNoStartVisitPlanServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetUnderwayVisitPlanServlet</servlet-name>
+    <url-pattern>/GetUnderwayVisitPlanServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetCompleteVisitPlanServlet</servlet-name>
+    <url-pattern>/GetCompleteVisitPlanServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetClientInfoServlet</servlet-name>
+    <url-pattern>/GetClientInfoServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SubmitVisitConclusionServlet</servlet-name>
+    <url-pattern>/SubmitVisitConclusionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SubmitClientServlet</servlet-name>
+    <url-pattern>/SubmitClientServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetClientSubmitServlet</servlet-name>
+    <url-pattern>/GetClientSubmitServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetBussinessActivityServlet</servlet-name>
+    <url-pattern>/GetBussinessActivityServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>EnterCommunitionServlet</servlet-name>
+    <url-pattern>/EnterCommunitionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FileUploadServlet</servlet-name>
+    <url-pattern>/FileUploadServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DownloadServlet</servlet-name>
+    <url-pattern>/DownloadServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetMissionConclusionServlet</servlet-name>
+    <url-pattern>/GetMissionConclusionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>RegisterBussinessServlet</servlet-name>
+    <url-pattern>/RegisterBussinessServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>InAddressBussinessServlet</servlet-name>
+    <url-pattern>/InAddressBussinessServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>OutAddressBussissServlet</servlet-name>
+    <url-pattern>/OutAddressBussissServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ReturnBussinessServlet</servlet-name>
+    <url-pattern>/ReturnBussinessServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>EnterNoticeServlet</servlet-name>
+    <url-pattern>/EnterNoticeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SubmitSuggestServlet</servlet-name>
+    <url-pattern>/SubmitSuggestServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetEmployeeClientServlet</servlet-name>
+    <url-pattern>/GetEmployeeClientServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WLoginServlet</servlet-name>
+    <url-pattern>/WLoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WDelEmployeeServlet</servlet-name>
+    <url-pattern>/WDelEmployeeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WUpdateEmployeeServlet</servlet-name>
+    <url-pattern>/WUpdateEmployeeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WAddEmployeeServlet</servlet-name>
+    <url-pattern>/WAddEmployeeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetAllAttendServlet</servlet-name>
+    <url-pattern>/WGetAllAttendServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WQueryAllClientServlet</servlet-name>
+    <url-pattern>/WQueryAllClientServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetWaittakeMissionServlet</servlet-name>
+    <url-pattern>/WGetWaittakeMissionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetAllDelEmployeeServlet</servlet-name>
+    <url-pattern>/WGetAllDelEmployeeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetAllEmployeeNameServlet</servlet-name>
+    <url-pattern>/GetAllEmployeeNameServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WSearchEmployeeServlet</servlet-name>
+    <url-pattern>/WSearchEmployeeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetDepartmentEmployeeServlet</servlet-name>
+    <url-pattern>/WGetDepartmentEmployeeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetEmployeeAllAttendanceServlet</servlet-name>
+    <url-pattern>/WGetEmployeeAllAttendanceServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetEmployeeDateAttendanceServlet</servlet-name>
+    <url-pattern>/WGetEmployeeDateAttendanceServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetAllEmployeeClientServlet</servlet-name>
+    <url-pattern>/WGetAllEmployeeClientServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WUpdateClientServlet</servlet-name>
+    <url-pattern>/WUpdateClientServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetEmployeeClientNameServlet</servlet-name>
+    <url-pattern>/WGetEmployeeClientNameServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WSearchClientServlet</servlet-name>
+    <url-pattern>/WSearchClientServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WCheckClientServlet</servlet-name>
+    <url-pattern>/WCheckClientServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WCancleClientDistuServlet</servlet-name>
+    <url-pattern>/WCancleClientDistuServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WDelClientServlet</servlet-name>
+    <url-pattern>/WDelClientServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetEmployeeVisitPlanServlet</servlet-name>
+    <url-pattern>/WGetEmployeeVisitPlanServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WUndoVisitPlanServlet</servlet-name>
+    <url-pattern>/WUndoVisitPlanServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetVisitConclusionServlet</servlet-name>
+    <url-pattern>/WGetVisitConclusionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WCheckVisitConclusionServlet</servlet-name>
+    <url-pattern>/WCheckVisitConclusionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WDelayVisitPlanServlet</servlet-name>
+    <url-pattern>/WDelayVisitPlanServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WAbandonVisitPlanServlet</servlet-name>
+    <url-pattern>/WAbandonVisitPlanServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetAllEmployeeVisitConclusionServlet</servlet-name>
+    <url-pattern>/WGetAllEmployeeVisitConclusionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetVisitConclusionDetailServlet</servlet-name>
+    <url-pattern>/WGetVisitConclusionDetailServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetEmployeeDelayServlet</servlet-name>
+    <url-pattern>/WGetEmployeeDelayServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetAllEmployeeMissionServlet</servlet-name>
+    <url-pattern>/WGetAllEmployeeMissionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WUndoMissionServclet</servlet-name>
+    <url-pattern>/WUndoMissionServclet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetEmployeeMissionConclusionServlet</servlet-name>
+    <url-pattern>/WGetEmployeeMissionConclusionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WCheckMissionConclusionServlet</servlet-name>
+    <url-pattern>/WCheckMissionConclusionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WAbandonMissionServlet</servlet-name>
+    <url-pattern>/WAbandonMissionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WDelayMissionServlet</servlet-name>
+    <url-pattern>/WDelayMissionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetAllEmployeeMissionConclusionServlet</servlet-name>
+    <url-pattern>/WGetAllEmployeeMissionConclusionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetMissionConclusionServlet</servlet-name>
+    <url-pattern>/WGetMissionConclusionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetEmployeeMissionDelayServlet</servlet-name>
+    <url-pattern>/WGetEmployeeMissionDelayServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetAllEmployeeBussinessServlet</servlet-name>
+    <url-pattern>/WGetAllEmployeeBussinessServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WCheckBussinessHavaActivityServlet</servlet-name>
+    <url-pattern>/WCheckBussinessHavaActivityServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WUndoBussinessServlet</servlet-name>
+    <url-pattern>/WUndoBussinessServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WUndoBussinessUndoActivityServlet</servlet-name>
+    <url-pattern>/WUndoBussinessUndoActivityServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WUndoBussinessUnbindActivityServlet</servlet-name>
+    <url-pattern>/WUndoBussinessUnbindActivityServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetBussinessActivityServlet</servlet-name>
+    <url-pattern>/WGetBussinessActivityServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WCheckBussinessServlet</servlet-name>
+    <url-pattern>/WCheckBussinessServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WCheckBussinessWithBadRecallServlet</servlet-name>
+    <url-pattern>/WCheckBussinessWithBadRecallServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetEmployeeBussinessBadRecallServlet</servlet-name>
+    <url-pattern>/WGetEmployeeBussinessBadRecallServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WSearchAttendanceByEmNameServlet</servlet-name>
+    <url-pattern>/WSearchAttendanceByEmNameServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetAttendanceStatisticalYearServlet</servlet-name>
+    <url-pattern>/WGetAttendanceStatisticalYearServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetAttendanceStatisticalYearMonthServlet</servlet-name>
+    <url-pattern>/WGetAttendanceStatisticalYearMonthServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetAttendanceStatisticalYearMonthEmployeeNameServlet</servlet-name>
+    <url-pattern>/WGetAttendanceStatisticalYearMonthEmployeeNameServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>WAddClientServlet</servlet-name>
+    <url-pattern>/WAddClientServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetAllNodistributionClientServlet</servlet-name>
+    <url-pattern>/WGetAllNodistributionClientServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetClientStatisticalNumberServlet</servlet-name>
+    <url-pattern>/WGetClientStatisticalNumberServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WDistributionClientServlet</servlet-name>
+    <url-pattern>/WDistributionClientServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetClientDistbutionServlet</servlet-name>
+    <url-pattern>/WGetClientDistbutionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGerNocheckClientServlet</servlet-name>
+    <url-pattern>/WGerNocheckClientServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetAllDelClientServlet</servlet-name>
+    <url-pattern>/WGetAllDelClientServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WCheckHasNoCheckClientServlet</servlet-name>
+    <url-pattern>/WCheckHasNoCheckClientServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetAllMissionRuningServlet</servlet-name>
+    <url-pattern>/WGetAllMissionRuningServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetMissionRunningNumberServlet</servlet-name>
+    <url-pattern>/WGetMissionRunningNumberServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WAddMissionServlet</servlet-name>
+    <url-pattern>/WAddMissionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetAllMissionDealServlet</servlet-name>
+    <url-pattern>/WGetAllMissionDealServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetAllMissionCompleteServlet</servlet-name>
+    <url-pattern>/WGetAllMissionCompleteServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetAllMissionUndoServlet</servlet-name>
+    <url-pattern>/WGetAllMissionUndoServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetAllMissionConclusionWithEmployeeInfoServlet</servlet-name>
+    <url-pattern>/WGetAllMissionConclusionWithEmployeeInfoServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetAllMissionDealyWithEmployeeInfoServlet</servlet-name>
+    <url-pattern>/WGetAllMissionDealyWithEmployeeInfoServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WCheckHasNoDealMissionServlet</servlet-name>
+    <url-pattern>/WCheckHasNoDealMissionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetAllVisitPlanRunningServlet</servlet-name>
+    <url-pattern>/WGetAllVisitPlanRunningServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetClientUndistriInfoServlet</servlet-name>
+    <url-pattern>/WGetClientUndistriInfoServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetAllVisitPlanWaitDealServlet</servlet-name>
+    <url-pattern>/WGetAllVisitPlanWaitDealServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetAllVisitPlanCompleteServlet</servlet-name>
+    <url-pattern>/WGetAllVisitPlanCompleteServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetAllVisitUndoServlet</servlet-name>
+    <url-pattern>/WGetAllVisitUndoServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetAllVisitConclusionServlet</servlet-name>
+    <url-pattern>/WGetAllVisitConclusionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetAllVisitDealyInfoServlet</servlet-name>
+    <url-pattern>/WGetAllVisitDealyInfoServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WCheckHasNoDealVisitPlanServlet</servlet-name>
+    <url-pattern>/WCheckHasNoDealVisitPlanServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetAllBussinessRuningServlet</servlet-name>
+    <url-pattern>/WGetAllBussinessRuningServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetBussinessAddOkEmployeeInfoServlet</servlet-name>
+    <url-pattern>/WGetBussinessAddOkEmployeeInfoServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WAddBussinessServlet</servlet-name>
+    <url-pattern>/WAddBussinessServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetAllBussinessWaitDealServlet</servlet-name>
+    <url-pattern>/WGetAllBussinessWaitDealServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetAllBussinessCompleteServlet</servlet-name>
+    <url-pattern>/WGetAllBussinessCompleteServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetAllBussinessUndoServlet</servlet-name>
+    <url-pattern>/WGetAllBussinessUndoServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetAllBussinessBadInfoServlet</servlet-name>
+    <url-pattern>/WGetAllBussinessBadInfoServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetEmployeeMissionBindServlet</servlet-name>
+    <url-pattern>/WGetEmployeeMissionBindServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WBindBussinessServlet</servlet-name>
+    <url-pattern>/WBindBussinessServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WUnBindBussinessServlet</servlet-name>
+    <url-pattern>/WUnBindBussinessServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetEmployeeVisitPlanBindServlet</servlet-name>
+    <url-pattern>/WGetEmployeeVisitPlanBindServlet</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<welcome-file-list>
+		<welcome-file>jsp/login.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>
