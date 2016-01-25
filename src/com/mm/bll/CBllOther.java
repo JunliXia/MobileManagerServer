@@ -17,6 +17,7 @@ import com.mm.dao.IDaoFrame;
 import com.mm.entity.CEntityAdministrator;
 import com.mm.entity.CEntityAttendance;
 import com.mm.entity.CEntityEmployee;
+import com.mm.entity.CEntityNotice;
 import com.mm.entity.CEntitySuggest;
 import com.mm.entityarray.CEntityAttendanceArray;
 import com.mm.entityarray.CEntityEmployeeArray;
@@ -287,6 +288,18 @@ public class CBllOther {
 	public List getAttendanceStatisticalByYearMonthAndEmployeeName(String year,String month,CEntityEmployee cEntityEmployee){
 		List findResult=iDaoFrame.queryStatisticalByYearMonthAndEmployeeName(cEntityEmployee, year, month);
 		return findResult;
+	}
+	
+	/**
+	 * 序号：othermodule:23
+	 * 功能：管理员增加一条通知公告
+	 * 参数：cEntityNotice(本表字段)
+	 * 返回值:boolean 
+	 */
+	public boolean createNotice(CEntityNotice cEntityNotice){
+		cEntityNotice.setM_sNoticeTime(getNewPubdate());
+		boolean bisAdd=iDaoFrame.saveNotice(cEntityNotice);
+		return bisAdd;
 	}
 	
 	

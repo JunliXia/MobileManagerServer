@@ -1,21 +1,19 @@
 @CHARSET "UTF-8";
 .tran{
-width: 80%;
+width: 95%;
 height: 600px;
-margin-left: 10%;
+margin-left: 30px;
 background: white;
 margin-top: 20px;
 border-radius:3px;
-box-shadow:0px 0px 3px rgba(0,0,0,0.5);
 }
 .tran-head{
-padding:10px 50px 0px 50px;
+padding:10px 10px 0px 0px;
 height:40px;
 
 }
 
 #complain,#affiche{
-border: 1px solid rgba(0,0,0,0.1);
 float: right;
 height:31px;
 padding-top:8px;
@@ -33,18 +31,18 @@ color: white;
 
 .tran-main{
 height:530px;
-margin:0px 50px;
-border: 1px solid rgba(0,0,0,0.1);
+margin:0px 0px;
 }
 .affiche-top{
-height: 25px;
-background:black;
+height: 30px;
+background:rgb(69,205,195);
 
 }
 .affiche-main{
 height:507px;
 margin:0px 20;
 overflow-x:hidden;
+background:rgb(248,254,254);
 }
 .affiche-one{
 height:100px;

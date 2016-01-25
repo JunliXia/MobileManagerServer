@@ -25,12 +25,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-	<div class="tran">
-	<div class="tran-head">
-		<div style="float: left;">事务管理</div>
-		<div id="complain" class="trantitle" onclick="showcomplain(this)">投诉建议</div>
-		<div id="affiche" class="trantitle" onclick="showaffiche(this)">通知公告</div>
-	</div>
+	<div class="tran" >
+<!--	<div class="tran-head">-->
+<!--		<div style="float: left;">事务管理</div>-->
+<!--		<div id="complain" class="trantitle" onclick="showcomplain(this)">投诉建议</div>-->
+<!--		<div id="affiche" class="trantitle" onclick="showaffiche(this)">通知公告</div>-->
+<!--	</div>-->
 	<div class="tran-main">
 		
 		

@@ -21,6 +21,7 @@ import com.mm.entity.CEntityMission;
 import com.mm.entity.CEntityMissionConclusion;
 import com.mm.entity.CEntityMissionDelay;
 import com.mm.entity.CEntityMissionUndo;
+import com.mm.entity.CEntityNotice;
 import com.mm.entity.CEntitySuggest;
 import com.mm.entity.CEntityVisitConclusion;
 import com.mm.entity.CEntityVisitPlan;
@@ -1387,5 +1388,16 @@ public class CBllFrameImpl implements IBllFrame{
 	public List getAttendanceStatisticalByYearMonthAndEmployeeName(String year,String month,CEntityEmployee cEntityEmployee){
 		List findResult=cBllOther.getAttendanceStatisticalByYearMonthAndEmployeeName(year, month, cEntityEmployee);
 		return findResult;
+	}
+	
+	/**
+	 * 序号：othermodule:23
+	 * 功能：管理员增加一条通知公告
+	 * 参数：cEntityNotice(本表字段)
+	 * 返回值:boolean 
+	 */
+	public boolean createNotice(CEntityNotice cEntityNotice){
+		boolean bisAdd=cBllOther.createNotice(cEntityNotice);
+		return bisAdd;
 	}
 }

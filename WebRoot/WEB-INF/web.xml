@@ -731,6 +731,20 @@
     <servlet-name>WCheckHasNoDealBussinessServlet</servlet-name>
     <servlet-class>com.mm.servlet.WCheckHasNoDealBussinessServlet</servlet-class>
   </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetAllNoticeServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetAllNoticeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WAddNoticeServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WAddNoticeServlet</servlet-class>
+  </servlet>
+
+
 
 
 
@@ -1329,6 +1343,14 @@
   <servlet-mapping>
     <servlet-name>WCheckHasNoDealBussinessServlet</servlet-name>
     <url-pattern>/WCheckHasNoDealBussinessServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetAllNoticeServlet</servlet-name>
+    <url-pattern>/WGetAllNoticeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WAddNoticeServlet</servlet-name>
+    <url-pattern>/WAddNoticeServlet</url-pattern>
   </servlet-mapping>
   
   

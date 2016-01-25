@@ -1,7 +1,35 @@
 
 $(document).ready(function() {
+	showmaintransactiontitle();
 	showaffiche("#affiche");
 })
+
+
+
+function showmaintransactiontitle() {
+	$(".right-title").html("");
+	$(".right-title").append(
+			"<img onclick='	showmaintransactiontitle(),showbussinessrunning()' src='./pic/daohang.png'  title='事务管理导航' style=' width:30px;height:30px; cursor:pointer; margin-left:100px;margin-bottom:-64px; margin-top:7px;' />"+
+			"<div id=missionhasnodeldivid style='display:none;font-family:Microsoft YaHei;cursor: pointer;position:relative;margin-left:180px; width:120px;height:50px; padding-top:10px;margin-bottom:-64px; margin-top:4px;'><font style='font-size:13px;color:rgb(255,255,255)'>您有未处理的出差</font><img id=clienttitlepoint src='./pic/redpoint.png' style='height:10px;width:10px;padding-bottom:3px; margin-top:-20px;;margin-left:109px;'><img/></div>"+
+		 	
+			"<div id=usermanagerserch class=zySearch> " +
+ 			"<input id=clientsearchameid class=search-input  placeholder='全员搜索或请输入员工名' ></input>"+
+ 			"<div class=search-btn  onclick='searchclient()'>搜索</div>"+
+ 			"</div>"+
+ 			"<div id=attenss style='height:25px;width:400px;float:right;margin-top:-15px; margin-left:700px;'>" +
+// 				"<div class=usebut style=' cursor:pointer; position: relative;' onclick='updateclient()'>修改</div>"+
+//				"<div class=usebut  style=' cursor:pointer; position: relative;' onclick='seebussiness()'>查看</div>"+
+				"<div class=usebut  style=' cursor:pointer; position: relative;' onclick='showaffiche(this)'>通知公告</div>"+
+				"<div class=usebut  style=' cursor:pointer; position: relative;' onclick='showcomplain(this)'>投诉建议</div>"+
+//				"<div class=usebut  style=' cursor:pointer; position: relative; margin-left:50px;'> <select id=selectbussinessID onchange='showSelectBussiness()' class=useselect style='height:25px;'><option value='1'>需执行</option><option value='2'>待处理</option><option value='3'>已结束</option><option value='4'>已撤销</option><option value='5'>不良记录</option></select></div> "+
+ 			"</div>"
+ 		
+	);
+	
+}
+
+
+
 
 function changetitle(x) {
 
@@ -14,11 +42,15 @@ function changetitle(x) {
 function showaffiche(x) {
 	changetitle(x);
 	$(".tran-main").html('<div class="affiche-top">'+
-			'<button style="float:right; "onclick="addaffiche()">新增</button>'+
+//			'<button style="float:right; "onclick="addaffiche()">新增</button>'+
+			'<div class="group-title" <font>通知公告</font>'+
+			
+			"<div class=usebut  style='float:right; cursor:pointer; margin-top:4px;' onclick='addaffiche()'>新增</div>"+
+			'</div>'+
 		'</div>'+'<div class="affiche-main">'+	'</div>'
 			);
 	
-	$.getJSON("./QueryAllNoticeServlet",function(outjson){
+	$.getJSON("./WGetAllNoticeServlet",function(outjson){
 		for ( var i = 0; i < outjson.NoticeList.length; i++) {
 		
 			$(".affiche-main").append(
@@ -40,7 +72,7 @@ function showaffiche(x) {
 function showcomplain(x) {
 	changetitle(x);
 	$(".tran-main").html('<div class="affiche-top"style="color:white;text-align:center;">'+
-			'建议列表'+
+//			'建议列表'+
 		'</div>'+'<div class="affiche-main">'+'</div>');
 	$.getJSON("./QueryAllSuggestServlet",function(outjson){
 		for ( var i = 0; i < outjson.SuggestList.length; i++) {
@@ -80,8 +112,8 @@ function addaffiche() {
 function createaffiche() {
 	var NoticeTitle=$("#addaffichetitle").val();
 	var NoticeContent=$("#addaffichemain").val();
-	$.getJSON("./AddNoticeServlet",{NoticeTitle:NoticeTitle,NoticeContent:NoticeContent},function(json){
-		if (json.sign) {
+	$.getJSON("./WAddNoticeServlet",{NoticeTitle:NoticeTitle,NoticeContent:NoticeContent},function(json){
+		if (json.check) {
 			alert("添加成功!");
 			showaffiche("#affiche");
 			closepage();

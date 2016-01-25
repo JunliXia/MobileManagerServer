@@ -39,7 +39,7 @@ public class CDaoNotice extends SuperDAO{
 	 */
 	@SuppressWarnings("unchecked")
 	public CEntityNoticeArray queryAllNotice() {
-		String hql="from com.mm.entity.CEntityNotice as notice";
+		String hql="from com.mm.entity.CEntityNotice as notice order by notice.m_sNoticeTime";
 		this.getHibernateTemplate().setCacheQueries(true);
 		List<?> findResult=this.getHibernateTemplate().find(hql);
 		CEntityNoticeArray cEntityNoticeArray=new CEntityNoticeArray((List<CEntityNotice>) findResult);
