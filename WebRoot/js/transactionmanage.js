@@ -71,8 +71,7 @@ function showaffiche(x) {
 
 function showcomplain(x) {
 	changetitle(x);
-	$(".tran-main").html('<div class="affiche-top"style="color:white;text-align:center;">'+
-//			'建议列表'+
+	$(".tran-main").html(	'<div class="group-title" style="margin-left:-10px;" <font>投诉建议</font>'+
 		'</div>'+'<div class="affiche-main">'+'</div>');
 	$.getJSON("./QueryAllSuggestServlet",function(outjson){
 		for ( var i = 0; i < outjson.SuggestList.length; i++) {
