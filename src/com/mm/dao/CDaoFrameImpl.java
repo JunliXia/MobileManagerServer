@@ -1535,6 +1535,17 @@ public class CDaoFrameImpl implements IDaoFrame {
 		LinkedMap findResult=cDaoBussiness.queryAllBussinessComplete();
 		return findResult;
 	}
+	
+	/**
+	 * 序号：bussiness:14
+	 * 功能：获取所有未删员工的未审核的出差数量
+	 * 参数：
+	 * 返回值:int
+	 */
+	public int queryBussinessWaitDealNumber(){
+		int count=cDaoBussiness.queryBussinessWaitDealNumber();
+		return count;
+	}
 	/*
 	 * -----------------------------出差活动bussinessactivity------------------------------------
 	 */

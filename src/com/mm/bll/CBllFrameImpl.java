@@ -1129,6 +1129,17 @@ public class CBllFrameImpl implements IBllFrame{
 		LinkedMap findResult=cBllBussiness.getAllBussinessBadrecordInfo();
 		return findResult;
 	}
+	
+	/**
+	 * 序号：bussinessmodule:25
+	 * 功能：判断是否还有未处理的出差记录
+	 * 参数：
+	 * 返回值:boolean
+	 */
+	public boolean hasWaitDealBussiness(){
+		boolean bishas=cBllBussiness.hasWaitDealBussiness();
+		return bishas;
+	}
 	/*
 	 *------------------------------ 其他模块othermodule----------------------------
 	 */

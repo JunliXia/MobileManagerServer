@@ -17,7 +17,20 @@ $(document).ready(function() {
  	
  	});
 	
+	bussinessdiandian();
 })
+
+function bussinessdiandian() {
+	var bussinesscount=0;
+	if(hasbussinessnocheck){
+		$("#missionhasnodeldivid").css("display","block");
+	}else {
+		$("#missionhasnodeldivid").css("display","none");
+	}
+	if(bussinesscount!=100000){
+		setTimeout(bussinessdiandian, 5000);
+	}
+}
 
 function showback() {
 	var seleid=$("#selectbussinessID").val();
@@ -43,7 +56,7 @@ function showmainbussinesstitle() {
 	$(".right-title").html("");
 	$(".right-title").append(
 			"<img onclick='	showmainbussinesstitle(),showbussinessrunning()' src='./pic/daohang.png'  title='出差管理导航' style=' width:30px;height:30px; cursor:pointer; margin-left:100px;margin-bottom:-64px; margin-top:7px;' />"+
-			"<div id=missionhasnodeldivid style='display:none;font-family:Microsoft YaHei;cursor: pointer;position:relative;margin-left:180px; width:120px;height:50px; padding-top:10px;margin-bottom:-64px; margin-top:4px;'><font style='font-size:13px;color:rgb(255,255,255)'>您有未处理的任务</font><img id=clienttitlepoint src='./pic/redpoint.png' style='height:10px;width:10px;padding-bottom:3px; margin-top:-20px;;margin-left:109px;'><img/></div>"+
+			"<div id=missionhasnodeldivid style='display:none;font-family:Microsoft YaHei;cursor: pointer;position:relative;margin-left:180px; width:120px;height:50px; padding-top:10px;margin-bottom:-64px; margin-top:4px;'><font style='font-size:13px;color:rgb(255,255,255)'>您有未处理的出差</font><img id=clienttitlepoint src='./pic/redpoint.png' style='height:10px;width:10px;padding-bottom:3px; margin-top:-20px;;margin-left:109px;'><img/></div>"+
 		 	
 			"<div id=usermanagerserch class=zySearch> " +
  			"<input id=clientsearchameid class=search-input  placeholder='全员搜索或请输入员工名' ></input>"+

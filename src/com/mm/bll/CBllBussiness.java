@@ -386,6 +386,23 @@ public class CBllBussiness {
 		return findReult;
 	}
 	
+	/**
+	 * 序号：bussinessmodule:25
+	 * 功能：判断是否还有未处理的出差记录
+	 * 参数：
+	 * 返回值:boolean
+	 */
+	public boolean hasWaitDealBussiness(){
+		boolean bisHas=false;
+		int number=iDaoFrame.queryBussinessWaitDealNumber();
+		if(number==0){
+			bisHas=false;
+		}else{
+			bisHas=true;
+		}
+		return bisHas;
+	}
+	
 	
 	
 	

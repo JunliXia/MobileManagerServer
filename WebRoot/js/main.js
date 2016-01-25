@@ -6,7 +6,32 @@ $(document).ready(function() {
 //	clientpoint();
 //	missionpoint();
 //	visitpoint();
+//	bussinesspoint();
 }) ;
+
+
+var hasbussinessnocheck=false;
+function bussinesspoint() {
+	var bussinessclient=0;
+	$.getJSON("./WCheckHasNoDealBussinessServlet",function(outjson){
+		if(outjson.check){
+			hasbussinessnocheck=true;
+			$("#bussinesspoint").css("display","block");
+			$("#bussinesspoint").css("margin-left","90px");
+			$("#bussinesspoint").css("margin-top","-12px");
+
+		}else{
+			hasbussinessnocheck=false;
+			$("#bussinesspoint").css("display","none");
+		}
+	
+	});
+	if(bussinessclient!=100000){
+		setTimeout(bussinesspoint, 5000);
+	}
+
+	
+}
 
 
 var hasvisitnocheck=false;

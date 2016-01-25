@@ -1103,6 +1103,14 @@ public interface IDaoFrame {
 	 */
 	public LinkedMap queryAllBussinessComplete();
 	
+	/**
+	 * 序号：bussiness:14
+	 * 功能：获取所有未删员工的未审核的出差数量
+	 * 参数：
+	 * 返回值:int
+	 */
+	public int queryBussinessWaitDealNumber();
+	
 	/*
 	 * -----------------------------出差活动bussinessactivity------------------------------------
 	 */
