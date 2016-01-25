@@ -437,6 +437,22 @@ public class CDaoMission extends SuperDAO{
 		return bisUpdate;
 	}
 	
+	/**
+	 * 序号：mission:22
+	 * 功能:根据员工号获取其未绑定的任务信息
+	 * 参数：CEntityEmployee(EmployeeId)
+	 * 返回值:CEntityMissionArray
+	 */
+	@SuppressWarnings("unchecked")
+	public CEntityMissionArray queryMissionUnBindByEmployee(CEntityEmployee cEntityEmployee){
+		String hql="from com.mm.entity.CEntityMission as mission where EmployeeId=? and MissionBussinessBandState=?";
+		List<?> findResult=this.getHibernateTemplate().find(hql,new Object[]{cEntityEmployee.getM_iEmployeeId(),MyConstant.Mission.MISSION_BUSSINESSNOBAND});
+		CEntityMissionArray cEntityMissionArray=new CEntityMissionArray((List<CEntityMission>) findResult);
+		return cEntityMissionArray;
+	}
+	
+	
+	
 	//获得当日日期，仅在本类中使用
 	private static String getNewPubdate(){
 		Calendar calendar = Calendar.getInstance();

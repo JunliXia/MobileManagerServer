@@ -713,6 +713,20 @@
     <servlet-name>WGetEmployeeVisitPlanBindServlet</servlet-name>
     <servlet-class>com.mm.servlet.WGetEmployeeVisitPlanBindServlet</servlet-class>
   </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetEmployeeMissionUnBindServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetEmployeeMissionUnBindServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetEmployeeVisitPlanUnBindServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetEmployeeVisitPlanUnBindServlet</servlet-class>
+  </servlet>
+
+
 
 
 
@@ -1296,6 +1310,14 @@
   <servlet-mapping>
     <servlet-name>WGetEmployeeVisitPlanBindServlet</servlet-name>
     <url-pattern>/WGetEmployeeVisitPlanBindServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetEmployeeMissionUnBindServlet</servlet-name>
+    <url-pattern>/WGetEmployeeMissionUnBindServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetEmployeeVisitPlanUnBindServlet</servlet-name>
+    <url-pattern>/WGetEmployeeVisitPlanUnBindServlet</url-pattern>
   </servlet-mapping>
   
   

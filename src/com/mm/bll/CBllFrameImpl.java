@@ -334,6 +334,17 @@ public class CBllFrameImpl implements IBllFrame{
 		CEntityMissionArray findResult=cBllMission.getEmployeeMissionBindInfo(cEntityEmployee);
 		return findResult;
 	}
+	
+	/**
+	 * 序号：missionmodule:27
+	 * 功能：根据员工号获取其未绑定的任务信息
+	 * 参数：CEntityEmployee(EmployeeId)
+	 * 返回值:CEntityMissionArray
+	 */
+	public CEntityMissionArray getEmployeeMissionUnBindInfo(CEntityEmployee cEntityEmployee){
+		CEntityMissionArray findResult=cBllMission.getEmployeeMissionUnBindInfo(cEntityEmployee);
+		return findResult;
+	}
 	/*
 	 *------------------------------ 客户模块 clientmodule----------------------------
 	 */
@@ -819,6 +830,18 @@ public class CBllFrameImpl implements IBllFrame{
 		CEntityVisitPlanArray cEntityVisitPlanArray=cBllClient.getBindVisitPlan(cEntityEmployee);
 		return cEntityVisitPlanArray;
 	}
+	
+	
+	/**
+	 * 序号：clientmodule:45
+	 * 功能：根据员工号获取其未绑定的拜访计划信息
+	 * 参数：CEntityEmployee(EmployeeId)
+	 * 返回值:CEntityVisitPlanArray 
+	 */
+	public CEntityVisitPlanArray getUnBindVisitPlan(CEntityEmployee cEntityEmployee){
+		CEntityVisitPlanArray cEntityVisitPlanArray=cBllClient.getUnBindVisitPlan(cEntityEmployee);
+		return cEntityVisitPlanArray;
+	}
 	/*
 	 *------------------------------ 出差模块bussinessmodule----------------------------
 	 */
@@ -848,8 +871,8 @@ public class CBllFrameImpl implements IBllFrame{
 	 * 参数：
 	 * 返回值:boolean
 	 */
-	public boolean bindBussinessActivity(CEntityBussinessActivity cEntityBussinessActivity) {
-		boolean bisUpdate=cBllBussiness.bindBussinessActivity(cEntityBussinessActivity);
+	public boolean bindBussinessActivity(CEntityBussinessActivity cEntityBussinessActivity,CEntityBussiness cEntityBussiness) {
+		boolean bisUpdate=cBllBussiness.bindBussinessActivity(cEntityBussinessActivity,cEntityBussiness);
 		return bisUpdate;
 	}
 	

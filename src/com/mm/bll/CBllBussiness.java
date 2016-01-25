@@ -53,9 +53,9 @@ public class CBllBussiness {
 	 * 参数：
 	 * 返回值:boolean
 	 */
-	public boolean bindBussinessActivity(CEntityBussinessActivity cEntityBussinessActivity){
-		//将出差活动记录绑定
-		boolean bisUndoActivity=iDaoFrame.updateBussinessBandTypeByObjectIdAndActivityType(cEntityBussinessActivity);
+	public boolean bindBussinessActivity(CEntityBussinessActivity cEntityBussinessActivity,CEntityBussiness cEntityBussiness){
+		//将出差活动记录创建
+		boolean bisUndoActivity=iDaoFrame.saveBussinessActivity(cEntityBussinessActivity, cEntityBussiness);
 		boolean bisUndo=false;
 		//将对应的绑定
 		if(cEntityBussinessActivity.getM_iBussinessActivityType()==MyConstant.BussinessActivity.BUSSINESSACTIVITY_MISSIONTYPE){

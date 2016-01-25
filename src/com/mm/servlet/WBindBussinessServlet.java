@@ -32,10 +32,10 @@ public class WBindBussinessServlet extends HttpServlet {
 		
 		int BussinessActivityType=Integer.parseInt(request.getParameter(MyOpcode.BussinessActivity.BussinessActivityType));
 		int BussinessObjectId=Integer.parseInt(request.getParameter(MyOpcode.BussinessActivity.BussinessObjectId));
-		
+		int BussinessId=Integer.parseInt(request.getParameter(MyOpcode.Bussiness.BussinessId));
 		CEntityBussinessActivity cEntityBussinessActivity=new CEntityBussinessActivity.Builder().BussinessActivityType(BussinessActivityType).BussinessObjectId(BussinessObjectId).BussinessBindType(MyConstant.BussinessActivity.BUSSINESSACTIVITY_BAND).build();
-		
-		boolean bisbind=iBllFrame.bindBussinessActivity(cEntityBussinessActivity);
+		CEntityBussiness cEntityBussiness=new CEntityBussiness.Builder().BussinessId(BussinessId).build();
+		boolean bisbind=iBllFrame.bindBussinessActivity(cEntityBussinessActivity,cEntityBussiness);
 		
 		JSONObject outjson=new CEntityBussiness.BuildJsonObject().Check(bisbind).build();
 		System.out.println(outjson);

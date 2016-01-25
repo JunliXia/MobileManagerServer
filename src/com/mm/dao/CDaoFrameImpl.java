@@ -445,6 +445,17 @@ public class CDaoFrameImpl implements IDaoFrame {
 		boolean bisupdate=cDaoMission.updateMissionBindType(cEntityMission);
 		return bisupdate;
 	}
+	
+	/**
+	 * 序号：mission:22
+	 * 功能:根据员工号获取其未绑定的任务信息
+	 * 参数：CEntityEmployee(EmployeeId)
+	 * 返回值:CEntityMissionArray
+	 */
+	public CEntityMissionArray queryMissionUnBindByEmployee(CEntityEmployee cEntityEmployee){
+		CEntityMissionArray cEntityMissionArray=cDaoMission.queryMissionUnBindByEmployee(cEntityEmployee);
+		return cEntityMissionArray;
+	}
 	/*
 	 * -------------------------------任务延期 missiondelay----------------------------------
 	 */	
@@ -1156,6 +1167,17 @@ public class CDaoFrameImpl implements IDaoFrame {
 	 */
 	public CEntityVisitPlanArray queryVisitPlanBindByEmployee(CEntityEmployee cEntityEmployee){
 		CEntityVisitPlanArray findResult=cDaoVisitPlan.queryVisitPlanBindByEmployee(cEntityEmployee);
+		return findResult;
+	}
+	
+	/**
+	 * 序号：visitplan:23
+	 * 功能：根据员工号获取其绑定的拜访计划信息
+	 * 参数：CEntityEmployee(EmployeeId)
+	 * 返回值:CEntityVisitPlanArray
+	 */
+	public CEntityVisitPlanArray queryVisitPlanUnBindByEmployee(CEntityEmployee cEntityEmployee){
+		CEntityVisitPlanArray findResult=cDaoVisitPlan.queryVisitPlanUnBindByEmployee(cEntityEmployee);
 		return findResult;
 	}
 	/*

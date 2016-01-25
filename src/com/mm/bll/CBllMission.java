@@ -388,7 +388,16 @@ public class CBllMission {
 	}
 	
 	
-	
+	/**
+	 * 序号：missionmodule:27
+	 * 功能：根据员工号获取其未绑定的任务信息
+	 * 参数：CEntityEmployee(EmployeeId)
+	 * 返回值:CEntityMissionArray
+	 */
+	public CEntityMissionArray getEmployeeMissionUnBindInfo(CEntityEmployee cEntityEmployee){
+		CEntityMissionArray findResult=iDaoFrame.queryMissionUnBindByEmployee(cEntityEmployee);
+		return findResult;
+	}
 	
 	
 	

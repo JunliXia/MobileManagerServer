@@ -671,7 +671,16 @@ public class CBllClient {
 		return cEntityVisitPlanArray;
 	}
 	
-	
+	/**
+	 * 序号：clientmodule:45
+	 * 功能：根据员工号获取其未绑定的拜访计划信息
+	 * 参数：CEntityEmployee(EmployeeId)
+	 * 返回值:CEntityVisitPlanArray 
+	 */
+	public CEntityVisitPlanArray getUnBindVisitPlan(CEntityEmployee cEntityEmployee){
+		CEntityVisitPlanArray cEntityVisitPlanArray=iDaoFrame.queryVisitPlanUnBindByEmployee(cEntityEmployee);
+		return cEntityVisitPlanArray;
+	}
 	
 	//若设置循环拜访的话，获得下一次的拜访开始时间，仅在本类中使用
 	@SuppressWarnings("deprecation")

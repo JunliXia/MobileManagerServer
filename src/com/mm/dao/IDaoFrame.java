@@ -326,6 +326,16 @@ public interface IDaoFrame {
 	public boolean updateMissionBindType(CEntityMission cEntityMission);
 	
 	
+	/**
+	 * 序号：mission:22
+	 * 功能:根据员工号获取其未绑定的任务信息
+	 * 参数：CEntityEmployee(EmployeeId)
+	 * 返回值:CEntityMissionArray
+	 */
+	public CEntityMissionArray queryMissionUnBindByEmployee(CEntityEmployee cEntityEmployee);
+	
+
+	
 	/*
 	 * -------------------------------任务延期 missiondelay----------------------------------
 	 */	
@@ -832,6 +842,15 @@ public interface IDaoFrame {
 	 * 返回值:CEntityVisitPlanArray
 	 */
 	public CEntityVisitPlanArray queryVisitPlanBindByEmployee(CEntityEmployee cEntityEmployee);
+
+	
+	/**
+	 * 序号：visitplan:23
+	 * 功能：根据员工号获取其绑定的拜访计划信息
+	 * 参数：CEntityEmployee(EmployeeId)
+	 * 返回值:CEntityVisitPlanArray
+	 */
+	public CEntityVisitPlanArray queryVisitPlanUnBindByEmployee(CEntityEmployee cEntityEmployee);
 	/*
 	 * ------------------------------拜访总结 visitconclusion-------------------------------------
 	 */	

@@ -531,6 +531,22 @@ public class CDaoVisitPlan extends SuperDAO {
 		return cEntityVisitPlanArray;
 	}
 	
+	/**
+	 * 序号：visitplan:23
+	 * 功能：根据员工号获取其绑定的拜访计划信息
+	 * 参数：CEntityEmployee(EmployeeId)
+	 * 返回值:CEntityVisitPlanArray
+	 */
+	@SuppressWarnings("unchecked")
+	public CEntityVisitPlanArray queryVisitPlanUnBindByEmployee(CEntityEmployee cEntityEmployee){
+		String hql="select new CEntityVisitPlan(visitplan.m_iVisitPlanId, visitplan.m_sVisitPlanPubdate,visitplan.m_sVisitPlanStartTime, visitplan.m_sVisitPlanEndTime,visitplan.m_iVisitPlanState, visitplan.m_iVisitPlanCycle,visitplan.m_iVisitPlanCycleType, visitplan.m_iVisitPlanCycleNumber,visitplan.m_iVisitPlanDays, visitplan.m_iVisitBussinessBandState)  from com.mm.entity.CEntityVisitPlan as visitplan where visitplan.m_iVisitBussinessBandState=? and EmployeeId=?";
+		List<?> findResult = this.getHibernateTemplate().find(hql,
+				new Object[]{MyConstant.VisitPlan.VISITPLAN_BUSSINESSNOBAND,cEntityEmployee.getM_iEmployeeId()});
+		CEntityVisitPlanArray cEntityVisitPlanArray = new CEntityVisitPlanArray(
+				(List<CEntityVisitPlan>) findResult);
+
+		return cEntityVisitPlanArray;
+	}
 	
 	
 	

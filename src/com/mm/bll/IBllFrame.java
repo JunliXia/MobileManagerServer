@@ -245,6 +245,14 @@ public interface IBllFrame {
 	 */
 	public CEntityMissionArray getEmployeeMissionBindInfo(CEntityEmployee cEntityEmployee);
 	
+	/**
+	 * 序号：missionmodule:27
+	 * 功能：根据员工号获取其未绑定的任务信息
+	 * 参数：CEntityEmployee(EmployeeId)
+	 * 返回值:CEntityMissionArray
+	 */
+	public CEntityMissionArray getEmployeeMissionUnBindInfo(CEntityEmployee cEntityEmployee);
+	
 	/*
 	 *------------------------------ 客户模块 clientmodule----------------------------
 	 */
@@ -594,6 +602,15 @@ public interface IBllFrame {
 	 * 返回值:CEntityVisitPlanArray 
 	 */
 	public CEntityVisitPlanArray getBindVisitPlan(CEntityEmployee cEntityEmployee);
+	
+	
+	/**
+	 * 序号：clientmodule:45
+	 * 功能：根据员工号获取其未绑定的拜访计划信息
+	 * 参数：CEntityEmployee(EmployeeId)
+	 * 返回值:CEntityVisitPlanArray 
+	 */
+	public CEntityVisitPlanArray getUnBindVisitPlan(CEntityEmployee cEntityEmployee);
 	/*
 	 *------------------------------ 出差模块bussinessmodule----------------------------
 	 */
@@ -611,7 +628,7 @@ public interface IBllFrame {
 	 * 参数：
 	 * 返回值:boolean
 	 */
-	public boolean bindBussinessActivity(CEntityBussinessActivity cEntityBussinessActivity);
+	public boolean bindBussinessActivity(CEntityBussinessActivity cEntityBussinessActivity,CEntityBussiness cEntityBussiness);
 	
 	/**
 	 * 序号：bussinessmodule:3

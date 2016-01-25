@@ -605,6 +605,116 @@ curtab=null;
 }
 
 
+function bianbussiness() {
+	if(curtab==null){
+		alert("请选择对象")
+	}else{
+		var x=curtab;
+		var id=$(x).find("th").eq(12).html();
+		$.getJSON("./WGetEmployeeMissionUnBindServlet",{EmployeeId:id},function(outjson){
+			missionstr=null;
+			for(var i=0;i<outjson.MissionList.length;i++){
+				missionstr=missionstr+"<option value ="+outjson.MissionList[i].MissionId+">任务号:"+outjson.MissionList[i].MissionId+"&nbsp任务内容:"+outjson.MissionList[i].MissionContent+"</option>";
+			}
+	 	
+	 	});
+		
+		$.getJSON("./WGetEmployeeVisitPlanUnBindServlet",{EmployeeId:id},function(outjson){
+			visitplanstr=null;
+			for(var i=0;i<outjson.VisitPlanList.length;i++){
+				visitplanstr=visitplanstr+"<option value ="+outjson.VisitPlanList[i].VisitPlanId+">拜访计划号:"+outjson.VisitPlanList[i].VisitPlanId+"&nbsp发布时间:"+outjson.VisitPlanList[i].VisitPlanPubdate+"</option>";
+			}
+	 	
+	 	});
+		$(".shadow").show();
+		$(".pagehead font").html("绑定出差活动")
+		$(".showpage").css("width","350px");
+		$(".showpage").css("height","90px");
+		$(".showpage").css("margin-left","600px");
+		$(".pagemain").html(
+//				'<div style="margin-top: 10px;">选择员工：<select id="movemember"></select></div>'+
+//				'<div>目的地址：<input style="width:244px" class="inadress" id="inadressid" type="text"/></div>'+
+//				'<div>出差内容：<input style="width:244px" class="inadress" id="inareaid" type="text"></input></div>'+
+				'<div style="margin-left: 70px;margin-top: 10px;"><button style="width:100px;" class=but1 onclick="bindmission()">绑定员工任务</button><button style="width:100px;" class=but1 onclick="bindvisitplan()">绑定员工拜访</button></div>'
+		);
+	}
+	
+	
+	
+//	$("#movemember").append(addokemployeeinfoStr)
+	
+}
+
+function bindmission() {
+	
+	$(".shadow").show();
+	$(".pagehead font").html("选择绑定任务")
+	$(".showpage").css("width","350px");
+	$(".showpage").css("height","150px");
+	$(".showpage").css("margin-left","600px");
+	$(".pagemain").html(
+			'<div style="margin-top: 10px;">选择任务：<select id="missstr"></select></div>'+
+//			'<div>目的地址：<input style="width:244px" class="inadress" id="inadressid" type="text"/></div>'+
+//			'<div>出差内容：<input style="width:244px" class="inadress" id="inareaid" type="text"></input></div>'+
+			'<div style="margin-left: 70px;margin-top: 10px;"><button class=but1 onclick="bindmissionok()">确定</button><button class=but1 onclick="closepage()">取消</button></div>'
+	);
+	
+	$("#missstr").append(missionstr);
+	missionstr=null;
+}
+function bindvisitplan(){
+	$(".shadow").show();
+	$(".pagehead font").html("选择绑定拜访计划")
+	$(".showpage").css("width","350px");
+	$(".showpage").css("height","150px");
+	$(".showpage").css("margin-left","600px");
+	$(".pagemain").html(
+			'<div style="margin-top: 10px;">选择拜访计划：<select id="visitstr"></select></div>'+
+//			'<div>目的地址：<input style="width:244px" class="inadress" id="inadressid" type="text"/></div>'+
+//			'<div>出差内容：<input style="width:244px" class="inadress" id="inareaid" type="text"></input></div>'+
+			'<div style="margin-left: 70px;margin-top: 10px;"><button class=but1 onclick="bindvisitplanok()">确定</button><button class=but1 onclick="closepage()">取消</button></div>'
+	);
+	
+	$("#visitstr").append(visitplanstr);
+	visitplanstr=null;
+}
+
+function bindmissionok() {
+	
+	var x=curtab;
+	var busid=$(x).find("th").eq(0).html();
+	var id=$("#missstr").val();
+	$.getJSON("./WBindBussinessServlet",{BussinessObjectId:id,BussinessActivityType:0,BussinessId:busid},function(outjson){
+		if(outjson.check){
+			alert("成功！");
+			
+		}else {
+			alert("失败！");
+		}
+		
+		closepage();
+	});
+}
+
+
+function bindvisitplanok() {
+	var x=curtab;
+	var busid=$(x).find("th").eq(0).html();
+	var id=$("#visitstr").val();
+	$.getJSON("./WBindBussinessServlet",{BussinessObjectId:id,BussinessActivityType:1,BussinessId:busid},function(outjson){
+		if(outjson.check){
+			alert("成功！");
+			
+		}else {
+			alert("失败！");
+		}
+		
+		closepage();
+	});
+}
+
+
+
 function unbianbussiness() {
 	if(curtab==null){
 		alert("请选择对象")
@@ -668,12 +778,12 @@ function unbindmission() {
 var visitplanstr;
 function unbindvisitplan(){
 	$(".shadow").show();
-	$(".pagehead font").html("选择解绑任务")
+	$(".pagehead font").html("选择解绑拜访计划")
 	$(".showpage").css("width","350px");
 	$(".showpage").css("height","150px");
 	$(".showpage").css("margin-left","600px");
 	$(".pagemain").html(
-			'<div style="margin-top: 10px;">选择任务：<select id="visitstr"></select></div>'+
+			'<div style="margin-top: 10px;">选择拜访计划：<select id="visitstr"></select></div>'+
 //			'<div>目的地址：<input style="width:244px" class="inadress" id="inadressid" type="text"/></div>'+
 //			'<div>出差内容：<input style="width:244px" class="inadress" id="inareaid" type="text"></input></div>'+
 			'<div style="margin-left: 70px;margin-top: 10px;"><button class=but1 onclick="unbindvisitplanok()">确定</button><button class=but1 onclick="closepage()">取消</button></div>'
@@ -721,7 +831,7 @@ function showbussinessrunning() {
 	  			"<div id=butclient style='height:25px;width:350px;float:right;margin-top:-20px; margin-left:900px;'>" +
 //	  			"<div class=clientbut  style=' cursor:pointer; position: relative;' onclick='()' >撤销</div>"+
 				"<div class=clientbut  style=' cursor:pointer; position: relative;' onclick='unbianbussiness()'>解绑活动</div>"+
-				"<div class=clientbut  style=' cursor:pointer; position: relative;' onclick='()'>绑定活动</div>"+
+				"<div class=clientbut  style=' cursor:pointer; position: relative;' onclick='bianbussiness()'>绑定活动</div>"+
 				'</div>'+
 	  			'<table id="tab"   style="font-size:13px;" width="100%">'+
 	               '<tbody>'+
