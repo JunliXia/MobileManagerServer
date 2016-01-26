@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.commons.collections.map.HashedMap;
 import org.apache.commons.collections.map.LinkedMap;
 
+import com.mm.entity.CEntityAddress;
 import com.mm.entity.CEntityAdministrator;
 import com.mm.entity.CEntityAttendance;
 import com.mm.entity.CEntityBussiness;
@@ -1018,4 +1019,29 @@ public interface IBllFrame {
 	 * 返回值:LinkedMap 
 	 */
 	public LinkedMap getAllSuggestInfo();
+	
+	
+	/**
+	 * 序号：othermodule:25
+	 * 功能：员工增加一条地址
+	 * 参数：
+	 * 返回值:boolean 
+	 */
+	public boolean createAddress(CEntityAddress cEntityAddress);
+	
+	/**
+	 * 序号：othermodule:26
+	 * 功能：按员工号及查询天数获取地址
+	 * 参数：
+	 * 返回值:LinkedMap 
+	 */
+	public LinkedMap getAddressInfo(CEntityEmployee cEntityEmployee,int days);
+
+	/**
+	 * 序号：othermodule:27
+	 * 功能：获取所有未删员工的信息
+	 * 参数：
+	 * 返回值:CEntityEmployeeArray 
+	 */
+	public CEntityEmployeeArray getAllNoDelEmployee();
 }

@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.commons.collections.map.HashedMap;
 import org.apache.commons.collections.map.LinkedMap;
 
+import com.mm.entity.CEntityAddress;
 import com.mm.entity.CEntityAdministrator;
 import com.mm.entity.CEntityAttendance;
 import com.mm.entity.CEntityBussiness;
@@ -1375,5 +1376,29 @@ public interface IDaoFrame {
 	 */
 	public LinkedMap queryAllSuggestInfo();
 
+	
+	/*
+	 * ----------------------------地址 address----------------------------------
+	 */
+	
+	/**
+	 * 序号：address:1
+	 * 功能:增加地址
+	 * 参数：cEntityAddress(所有字段)
+	 * 返回值:boolean
+	 */
+	public boolean saveAddress(CEntityAddress cEntityAddress);
+	
+	/**
+	 * 序号：address:2
+	 * 功能: 按员工号及查询天数获取地址
+	 * 参数：cEntityEmployee(EmployeeId),days
+	 * 返回值:LinkedMap
+	 */
+	public LinkedMap queryAddressEmployeeInfoWithTime(CEntityEmployee cEntityEmployee,int days);
+	
+	
+	
+	
 }
 

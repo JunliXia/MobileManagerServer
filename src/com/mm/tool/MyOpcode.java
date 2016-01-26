@@ -356,5 +356,19 @@ public class MyOpcode {
 		public static final String SuggestTime="SuggestTime";
 	}
 	
+	/**
+	 * 
+	 *¹¦ÄÜ£ºµØÖ·
+	 *
+	 */
+	public static final class Address{
+		public static final String Address="Address";
+		public static final String AddressList="AddressList";
+		public static final String AddressId="AddressId";
+		public static final String AddressLong="AddressLong";
+		public static final String AddressLat="AddressLat";
+		public static final String AddressTime="AddressTime";
+	}
+	
 	
 }

@@ -41,6 +41,7 @@
 		<mapping class="com.mm.entity.CEntityVisitDelay" />
 		<mapping class="com.mm.entity.CEntityVisitPlan" />
 		<mapping class="com.mm.entity.CEntityVisitUndo" />
+		<mapping class="com.mm.entity.CEntityAddress" />
 	</session-factory>
 
 </hibernate-configuration>

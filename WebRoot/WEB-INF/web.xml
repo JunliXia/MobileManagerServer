@@ -749,6 +749,20 @@
     <servlet-name>WGetAllSuggestServlet</servlet-name>
     <servlet-class>com.mm.servlet.WGetAllSuggestServlet</servlet-class>
   </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetAllNoDelEmployeeServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetAllNoDelEmployeeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetEmployeeAddressServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetEmployeeAddressServlet</servlet-class>
+  </servlet>
+
+
 
 
 
@@ -1362,6 +1376,14 @@
   <servlet-mapping>
     <servlet-name>WGetAllSuggestServlet</servlet-name>
     <url-pattern>/WGetAllSuggestServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetAllNoDelEmployeeServlet</servlet-name>
+    <url-pattern>/WGetAllNoDelEmployeeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetEmployeeAddressServlet</servlet-name>
+    <url-pattern>/WGetEmployeeAddressServlet</url-pattern>
   </servlet-mapping>
   
   

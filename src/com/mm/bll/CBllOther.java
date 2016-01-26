@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.mm.dao.IDaoFrame;
+import com.mm.entity.CEntityAddress;
 import com.mm.entity.CEntityAdministrator;
 import com.mm.entity.CEntityAttendance;
 import com.mm.entity.CEntityEmployee;
@@ -311,6 +312,41 @@ public class CBllOther {
 	 */
 	public LinkedMap getAllSuggestInfo(){
 		LinkedMap findResult=iDaoFrame.queryAllSuggestInfo();
+		return findResult;
+	}
+	
+	
+	/**
+	 * 序号：othermodule:25
+	 * 功能：员工增加一条地址
+	 * 参数：
+	 * 返回值:boolean 
+	 */
+	public boolean createAddress(CEntityAddress cEntityAddress){
+		boolean bisSave=iDaoFrame.saveAddress(cEntityAddress);
+		return bisSave;
+	}
+	
+	
+	/**
+	 * 序号：othermodule:26
+	 * 功能：按员工号及查询天数获取地址
+	 * 参数：
+	 * 返回值:LinkedMap 
+	 */
+	public LinkedMap getAddressInfo(CEntityEmployee cEntityEmployee,int days){
+		LinkedMap findReult=iDaoFrame.queryAddressEmployeeInfoWithTime(cEntityEmployee, days);
+		return findReult;
+	}
+	
+	/**
+	 * 序号：othermodule:27
+	 * 功能：获取所有未删员工的信息
+	 * 参数：
+	 * 返回值:CEntityEmployeeArray 
+	 */
+	public CEntityEmployeeArray getAllNoDelEmployee(){
+		CEntityEmployeeArray findResult=iDaoFrame.queryAllEmployee();
 		return findResult;
 	}
 	

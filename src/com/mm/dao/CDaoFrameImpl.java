@@ -9,6 +9,7 @@ import org.apache.commons.collections.map.HashedMap;
 import org.apache.commons.collections.map.LinkedMap;
 import org.springframework.stereotype.Component;
 
+import com.mm.entity.CEntityAddress;
 import com.mm.entity.CEntityAdministrator;
 import com.mm.entity.CEntityAttendance;
 import com.mm.entity.CEntityBussiness;
@@ -1927,5 +1928,41 @@ public class CDaoFrameImpl implements IDaoFrame {
 		LinkedMap findResult=cDaoSuggest.queryAllSuggestInfo();
 		return findResult;
 	}
+	
+	
+	/*
+	 * ----------------------------地址 address----------------------------------
+	 */
+	
+	private CDaoAddress cDaoAddress;
+
+	@Resource
+	public void setcDaoAddress(CDaoAddress cDaoAddress) {
+		this.cDaoAddress = cDaoAddress;
+	}
+	
+	/**
+	 * 序号：address:1
+	 * 功能:增加地址
+	 * 参数：cEntityAddress(所有字段)
+	 * 返回值:boolean
+	 */
+	public boolean saveAddress(CEntityAddress cEntityAddress) {
+		boolean bisSave=cDaoAddress.saveAddress(cEntityAddress);
+		return bisSave;
+	}
+	
+	/**
+	 * 序号：address:2
+	 * 功能: 按员工号及查询天数获取地址
+	 * 参数：cEntityEmployee(EmployeeId),days
+	 * 返回值:LinkedMap
+	 */
+	public LinkedMap queryAddressEmployeeInfoWithTime(CEntityEmployee cEntityEmployee,int days) {
+		LinkedMap findResult=cDaoAddress.queryAddressEmployeeInfoWithTime(cEntityEmployee, days);
+		return findResult;
+	}
+	
+	
 	
 }
