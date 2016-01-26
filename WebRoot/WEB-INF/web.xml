@@ -743,6 +743,13 @@
     <servlet-name>WAddNoticeServlet</servlet-name>
     <servlet-class>com.mm.servlet.WAddNoticeServlet</servlet-class>
   </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WGetAllSuggestServlet</servlet-name>
+    <servlet-class>com.mm.servlet.WGetAllSuggestServlet</servlet-class>
+  </servlet>
+
 
 
 
@@ -1351,6 +1358,10 @@
   <servlet-mapping>
     <servlet-name>WAddNoticeServlet</servlet-name>
     <url-pattern>/WAddNoticeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WGetAllSuggestServlet</servlet-name>
+    <url-pattern>/WGetAllSuggestServlet</url-pattern>
   </servlet-mapping>
   
   

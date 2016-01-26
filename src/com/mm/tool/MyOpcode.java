@@ -349,6 +349,7 @@ public class MyOpcode {
 	 *
 	 */
 	public static final class Suggest{
+		public static final String Suggest="Suggest";
 		public static final String SuggestList="SuggestList";
 		public static final String SuggestId="SuggestId";
 		public static final String SuggestContent="SuggestContent";

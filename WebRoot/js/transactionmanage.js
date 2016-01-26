@@ -71,18 +71,17 @@ function showaffiche(x) {
 
 function showcomplain(x) {
 	changetitle(x);
-	$(".tran-main").html(	'<div class="group-title" style="margin-left:-10px;" <font>投诉建议</font>'+
+	$(".tran-main").html(	'<div class="group-title" style="margin-left:0px" <font>投诉建议</font>'+
 		'</div>'+'<div class="affiche-main">'+'</div>');
-	$.getJSON("./QueryAllSuggestServlet",function(outjson){
+	$.getJSON("./WGetAllSuggestServlet",function(outjson){
 		for ( var i = 0; i < outjson.SuggestList.length; i++) {
-			var name=getnamebyid(outjson.SuggestList[i].EmployeeId);
 			$(".affiche-main").append(
 					'<div class="affiche-one">'+
 						'<img  src="./pic/male.png">'+
 						'<div class="affiche-oneright">'+
-							'<div class="affiche-one-title">'+name+'</div>'+
+							'<div class="affiche-one-title">'+outjson.SuggestList[i].EmployeeName+'</div>'+
 							'<div class="affiche-one-more">'+outjson.SuggestList[i].SuggestContent+'</div>'+
-							'<div style="text-align:right;font-size:12px;">2012-2-2</div>'+
+							'<div style="text-align:right;font-size:12px;">'+outjson.SuggestList[i].SuggestTime+'</div>'+
 						'</div>'+
 					'</div>'	
 				);

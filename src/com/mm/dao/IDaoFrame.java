@@ -1366,7 +1366,14 @@ public interface IDaoFrame {
 	 * 返回值:CEntitySuggestArray
 	 */
 	public CEntitySuggestArray queryAllSuggest();
-
+	
+	/**
+	 * 序号：suggest:3
+	 * 功能：获取所有的建议信息
+	 * 参数：无
+	 * 返回值:LinkedMap
+	 */
+	public LinkedMap queryAllSuggestInfo();
 
 }
 

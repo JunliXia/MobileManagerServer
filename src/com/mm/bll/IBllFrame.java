@@ -1010,4 +1010,12 @@ public interface IBllFrame {
 	 * 返回值:boolean 
 	 */
 	public boolean createNotice(CEntityNotice cEntityNotice);
+	
+	/**
+	 * 序号：othermodule:24
+	 * 功能：获取所有的投诉建议
+	 * 参数：
+	 * 返回值:LinkedMap 
+	 */
+	public LinkedMap getAllSuggestInfo();
 }

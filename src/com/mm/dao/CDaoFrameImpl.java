@@ -1917,5 +1917,15 @@ public class CDaoFrameImpl implements IDaoFrame {
 		return cEntitySuggestArray;
 	}
 
+	/**
+	 * 序号：suggest:3
+	 * 功能：获取所有的建议信息
+	 * 参数：无
+	 * 返回值:LinkedMap
+	 */
+	public LinkedMap queryAllSuggestInfo(){
+		LinkedMap findResult=cDaoSuggest.queryAllSuggestInfo();
+		return findResult;
+	}
 	
 }

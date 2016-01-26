@@ -8,6 +8,7 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.apache.commons.collections.map.HashedMap;
+import org.apache.commons.collections.map.LinkedMap;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
@@ -301,6 +302,18 @@ public class CBllOther {
 		boolean bisAdd=iDaoFrame.saveNotice(cEntityNotice);
 		return bisAdd;
 	}
+	
+	/**
+	 * 序号：othermodule:24
+	 * 功能：获取所有的投诉建议
+	 * 参数：
+	 * 返回值:LinkedMap 
+	 */
+	public LinkedMap getAllSuggestInfo(){
+		LinkedMap findResult=iDaoFrame.queryAllSuggestInfo();
+		return findResult;
+	}
+	
 	
 	
 	//获得当日日期，仅在本类中使用

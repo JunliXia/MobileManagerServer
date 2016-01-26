@@ -1400,4 +1400,16 @@ public class CBllFrameImpl implements IBllFrame{
 		boolean bisAdd=cBllOther.createNotice(cEntityNotice);
 		return bisAdd;
 	}
+	
+	/**
+	 * 序号：othermodule:24
+	 * 功能：获取所有的投诉建议
+	 * 参数：
+	 * 返回值:LinkedMap 
+	 */
+	public LinkedMap getAllSuggestInfo(){
+		LinkedMap findResult=cBllOther.getAllSuggestInfo();
+		return findResult;
+		
+	}
 }

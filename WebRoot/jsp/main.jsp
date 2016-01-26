@@ -43,7 +43,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   				<div class="one" onclick="changecolors(this),tovisitplan()">拜访管理<img id=visitpoint src="./pic/redpoint.png" style="height:10px;width:10px; margin-left:30px;	"><img/></div>
   				<div class="one" onclick="changecolors(this),tobussiness()">出差管理<img id=bussinesspoint src="./pic/redpoint.png" style="height:10px;width:10px; margin-left:30px;	"><img/></div>
   				<div class="one" onclick="changecolors(this),tomap()">地图相关</div>
-  				<div class="one" onclick="changecolors(this),totransaction()">事务查看<img id=transpoint src="./pic/redpoint.png" style="height:10px;width:10px; margin-left:30px;	"><img/></div>
+  				<div class="one" onclick="changecolors(this),totransaction()">事务查看</div>
+<!--  				<div class="one" onclick="changecolors(this),totransaction()">事务查看<img id=transpoint src="./pic/redpoint.png" style="height:10px;width:10px; margin-left:30px;	"><img/></div>-->
   			</div>
   		</div>
   		<div class="right-title"></div>
