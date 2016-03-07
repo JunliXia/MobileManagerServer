@@ -852,6 +852,14 @@ public interface IDaoFrame {
 	 * 返回值:CEntityVisitPlanArray
 	 */
 	public CEntityVisitPlanArray queryVisitPlanUnBindByEmployee(CEntityEmployee cEntityEmployee);
+	
+	/**
+	 * 序号：visitplan:24
+	 * 功能：通过当前日期修改拜访状态(未接受,执行中)为已过期
+	 * 参数：cEntityVisitPlan(VisitPlanEndTime)
+	 * 返回值:boolean
+	 */
+	public boolean updateVisitPlanStateForOutTimeState(CEntityVisitPlan cEntityVisitPlan);
 	/*
 	 * ------------------------------拜访总结 visitconclusion-------------------------------------
 	 */	

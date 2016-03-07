@@ -1181,6 +1181,17 @@ public class CDaoFrameImpl implements IDaoFrame {
 		CEntityVisitPlanArray findResult=cDaoVisitPlan.queryVisitPlanUnBindByEmployee(cEntityEmployee);
 		return findResult;
 	}
+	
+	/**
+	 * 序号：visitplan:24
+	 * 功能：通过当前日期修改拜访状态(未接受,执行中)为已过期
+	 * 参数：cEntityVisitPlan(VisitPlanEndTime)
+	 * 返回值:boolean
+	 */
+	public boolean updateVisitPlanStateForOutTimeState(CEntityVisitPlan cEntityVisitPlan){
+		boolean bisUpdate=cDaoVisitPlan.updateVisitPlanStateForOutTimeState(cEntityVisitPlan);
+		return bisUpdate;
+	}
 	/*
 	 * ------------------------------拜访总结 visitconclusion-------------------------------------
 	 */	

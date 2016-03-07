@@ -682,6 +682,9 @@ public class CBllClient {
 		return cEntityVisitPlanArray;
 	}
 	
+	
+	
+	
 	//若设置循环拜访的话，获得下一次的拜访开始时间，仅在本类中使用
 	@SuppressWarnings("deprecation")
 	private static String getCycleStartTime(CEntityVisitPlan cEntityVisitPlan){

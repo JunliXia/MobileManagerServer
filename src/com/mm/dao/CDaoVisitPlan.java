@@ -533,7 +533,7 @@ public class CDaoVisitPlan extends SuperDAO {
 	
 	/**
 	 * 序号：visitplan:23
-	 * 功能：根据员工号获取其绑定的拜访计划信息
+	 * 功能：根据员工号获取其未绑定的拜访计划信息
 	 * 参数：CEntityEmployee(EmployeeId)
 	 * 返回值:CEntityVisitPlanArray
 	 */
@@ -547,6 +547,26 @@ public class CDaoVisitPlan extends SuperDAO {
 
 		return cEntityVisitPlanArray;
 	}
+	
+	/**
+	 * 序号：visitplan:24
+	 * 功能：通过当前日期修改拜访状态(未接受,执行中)为已过期
+	 * 参数：cEntityVisitPlan(VisitPlanEndTime)
+	 * 返回值:boolean
+	 */
+	public boolean updateVisitPlanStateForOutTimeState(CEntityVisitPlan cEntityVisitPlan){
+		String hql="update com.mm.entity.CEntityVisitPlan as visitplan set VisitPlanState=? where VisitPlanState in(?,?) and VisitPlanEndTime=?";
+		boolean bisUpdate=false;
+		try {
+			this.getHibernateTemplate().bulkUpdate(hql,new Object[]{MyConstant.VisitPlan.VISITPLAN_OUTTIME,MyConstant.VisitPlan.VISITPLAN_NOTSTART,MyConstant.VisitPlan.VISITPLAN_UNDERWAY,cEntityVisitPlan.getM_sVisitPlanEndTime()});
+			bisUpdate=true;
+		} catch (DataAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return bisUpdate;
+	}
+	
 	
 	
 	

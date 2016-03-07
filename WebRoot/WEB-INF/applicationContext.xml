@@ -102,6 +102,13 @@
 		</property>
 	</bean>
 
+	<bean id="croncBllVisitplanClock" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="cBllVisitplanClock" />
+		<property name="cronExpression">
+			<!--   每天凌晨触发       -->
+			<value>0 0 0 * * ?</value>
+		</property>
+	</bean>
 
 
 	<!-- 启动定时任务,注意这里的ref bean -->
@@ -111,6 +118,7 @@
 			<list>
 				<ref bean="croncBllAttendanceClock" />
 				<ref bean="croncBllMissionClock" />
+				<ref bean="croncBllVisitplanClock" />
 			</list>
 		</property>
 	</bean>
