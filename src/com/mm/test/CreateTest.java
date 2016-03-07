@@ -5,12 +5,12 @@ import org.hibernate.tool.hbm2ddl.SchemaExport;
 
 public class CreateTest {
 	public static void main(String[] args) {
-//		createTable();
+		// createTable();
 	}
-	
-	
-	//建表
-	public static void createTable(){
-		new SchemaExport(new AnnotationConfiguration().configure()).create(true, true);
+
+	// 建表
+	public static void createTable() {
+		new SchemaExport(new AnnotationConfiguration().configure()).create(
+				true, true);
 	}
 }

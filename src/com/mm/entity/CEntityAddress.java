@@ -30,6 +30,12 @@ public class CEntityAddress {
 	
 	
 	
+	public CEntityAddress(String addressLong, String addressLat, int employeeId) {
+		AddressLong = addressLong;
+		AddressLat = addressLat;
+		EmployeeId = employeeId;
+	}
+
 	public CEntityAddress(String addressLong, String addressLat,
 			String addressTime, int employeeId) {
 		AddressLong = addressLong;

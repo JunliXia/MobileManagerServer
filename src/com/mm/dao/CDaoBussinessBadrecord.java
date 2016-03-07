@@ -15,7 +15,7 @@ import com.mm.tool.MyConstant;
 import com.mm.tool.MyOpcode;
 
 @Component("cDaoBussinessBadrecord")
-public class CDaoBussinessBadrecord extends SuperDAO{
+public class CDaoBussinessBadrecord extends SuperDAO {
 	
 	/**
 	 * ÐòºÅ£ºbussinessbadrecord:1
