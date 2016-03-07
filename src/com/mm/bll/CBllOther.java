@@ -1,6 +1,7 @@
 package com.mm.bll;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -165,6 +166,16 @@ public class CBllOther {
 	 */
 	public boolean addEmployee(CEntityEmployee cEntityEmployee){
 		boolean bisAdd=iDaoFrame.saveEmployee(cEntityEmployee);
+		
+		//增加start---增加员工的时候，在考勤表初始当日的考勤记录
+		String m_date=getNewPubdate();
+		List<CEntityAttendance> cEntityAttendances=new ArrayList<CEntityAttendance>();
+		CEntityAttendance cEntityAttendance=new CEntityAttendance.Builder().AttendanceDate(m_date).build();
+		cEntityAttendance.setcEntityEmployee(cEntityEmployee);
+		cEntityAttendances.add(cEntityAttendance);
+		CEntityAttendanceArray cEntityAttendanceArray=new CEntityAttendanceArray(cEntityAttendances);
+		iDaoFrame.saveAttendances(cEntityAttendanceArray);
+		//增加end
 		return bisAdd;
 	}
 	
