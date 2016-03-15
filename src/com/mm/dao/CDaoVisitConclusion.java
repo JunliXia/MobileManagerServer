@@ -25,17 +25,20 @@ public class CDaoVisitConclusion extends SuperDAO{
 	 * ·µ»ØÖµ:boolean
 	 */
 	public boolean saveVisitConclusion(CEntityEmployee cEntityEmployee,CEntityVisitPlan cEntityVisitPlan,CEntityVisitConclusion cEntityVisitConclusion) {
-		CEntityEmployee findEmployee=(CEntityEmployee)this.getHibernateTemplate().get(CEntityEmployee.class, cEntityEmployee.getM_iEmployeeId());
-		CEntityVisitPlan findVisitPlan=(CEntityVisitPlan)this.getHibernateTemplate().get(CEntityVisitPlan.class, cEntityVisitPlan.getM_iVisitPlanId());
+//		CEntityEmployee findEmployee=(CEntityEmployee)this.getHibernateTemplate().get(CEntityEmployee.class, cEntityEmployee.getM_iEmployeeId());
+//		CEntityVisitPlan findVisitPlan=(CEntityVisitPlan)this.getHibernateTemplate().get(CEntityVisitPlan.class, cEntityVisitPlan.getM_iVisitPlanId());
 		
 		boolean bisSave=false;
 		
 		try {
+			cEntityVisitConclusion.setM_iEmployeeId(cEntityEmployee.getM_iEmployeeId());
+			cEntityVisitConclusion.setM_iVisitPlanId(cEntityVisitPlan.getM_iVisitPlanId());
 			this.getHibernateTemplate().save(cEntityVisitConclusion);
-			findVisitPlan.getcEntityVisitConclusions().add(cEntityVisitConclusion);
-			findEmployee.getcEntityVisitConclusions().add(cEntityVisitConclusion);
-			this.getHibernateTemplate().update(findVisitPlan);
-			this.getHibernateTemplate().update(findEmployee);
+			
+//			findVisitPlan.getcEntityVisitConclusions().add(cEntityVisitConclusion);
+//			findEmployee.getcEntityVisitConclusions().add(cEntityVisitConclusion);
+//			this.getHibernateTemplate().update(findVisitPlan);
+//			this.getHibernateTemplate().update(findEmployee);
 			bisSave=true;
 		} catch (DataAccessException e) {
 			// TODO Auto-generated catch block

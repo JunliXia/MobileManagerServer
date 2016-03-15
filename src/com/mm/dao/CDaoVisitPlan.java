@@ -41,6 +41,10 @@ public class CDaoVisitPlan extends SuperDAO {
 //		cEntityVisitPlan.setM_iEmployeeId(cEntityEmployee.getM_iEmployeeId());
 //		cEntityVisitPlan.setM
 
+		if(cEntityVisitPlan.getM_sVisitPlanStartTime().endsWith(getNewPubdate())){
+			cEntityVisitPlan.setM_iVisitPlanState(MyConstant.VisitPlan.VISITPLAN_UNDERWAY);
+		}
+		
 		try {
 			Serializable visid= this.getHibernateTemplate().save(cEntityVisitPlan);
 //			findEmployee.getcEntityVisitPlans().add(cEntityVisitPlan);
@@ -567,9 +571,38 @@ public class CDaoVisitPlan extends SuperDAO {
 		return bisUpdate;
 	}
 	
+	/**
+	 * 序号：visitplan:25
+	 * 功能：通过当前日期修改拜访状态未开始为执行中
+	 * 参数：cEntityVisitPlan(VisitPlanEndTime)
+	 * 返回值:boolean
+	 */
+	public boolean updateVisitPlanStateForStart(){
+		String hql="update com.mm.entity.CEntityVisitPlan as visitplan set VisitPlanState=? where VisitPlanState=? and VisitPlanStartTime=?";
+		boolean bisUpdate=false;
+		try {
+			this.getHibernateTemplate().bulkUpdate(hql,new Object[]{MyConstant.VisitPlan.VISITPLAN_UNDERWAY,MyConstant.VisitPlan.VISITPLAN_NOTSTART,getYesterdayPubdate()});
+			bisUpdate=true;
+		} catch (DataAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return bisUpdate;
+	}
 	
 	
 	
+	//获得前一日日期 (因为现在是凌晨判断的是昨天为期限的)
+	private static String getYesterdayPubdate(){
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(new Date());
+		calendar.add(Calendar.DAY_OF_MONTH, -1);
+		Date resultDate=calendar.getTime();
+		SimpleDateFormat sFormat = new SimpleDateFormat("yyyy/MM/dd");
+		String result=sFormat.format(resultDate);
+		return result;
+		
+	}
 	//获得当日日期，仅在本类中使用
 	private static String getNewPubdate(){
 		Calendar calendar = Calendar.getInstance();

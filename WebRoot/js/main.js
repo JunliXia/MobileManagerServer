@@ -3,10 +3,10 @@ $(document).ready(function() {
 	changecolors("#userbit");
 	touser();
 	
-//	clientpoint();
-//	missionpoint();
-//	visitpoint();
-//	bussinesspoint();
+	clientpoint();
+	missionpoint();
+	visitpoint();
+	bussinesspoint();
 }) ;
 
 

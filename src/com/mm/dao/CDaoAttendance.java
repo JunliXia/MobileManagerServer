@@ -7,6 +7,7 @@ import java.util.List;
 import org.apache.commons.collections.map.HashedMap;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.dao.DataAccessException;
 import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.stereotype.Component;
@@ -246,12 +247,7 @@ public class CDaoAttendance extends SuperDAO {
 	}
 	
 	
-//	public static void main(String[] args) {
-//	ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext(
-//	"applicationContext.xml");
-//	CDaoAttendance tt = (CDaoAttendance) ctx.getBean("cDaoAttendance");
-//	tt.queryStatisticalByYearAndMonth("2015","12");
-//}
+
 	/**
 	 * 序号：attendance:11
 	 * 功能：按年份，月份获取所有未删员工的员工号，员工账号，员工名，考勤次数(签到次数，签退次数)，迟到次数（签到迟到次数，签退迟到次数），漏签次数（签到迟到漏签次数，签退漏签次数）
@@ -308,15 +304,28 @@ public class CDaoAttendance extends SuperDAO {
 		return findResult;
 	}
 	
+	/**
+	 * 序号：attendance:13
+	 * 功能：取到最后一条记录的日期
+	 * 参数：
+	 * 返回值:String(yyyy/mm/dd)
+	 */
+	@SuppressWarnings("unchecked")
+	public String queryLastAttendance(){
+		String hql="select attendance.m_sAttendanceDate from com.mm.entity.CEntityAttendance as attendance order by attendance.m_iAttendanceId desc ";
+		List findResult=this.getHibernateTemplate().find(hql);
+		System.out.println(findResult.toString());
+		return findResult.get(0).toString();
+	}
 	
 	
 	
-	
-	
-	
-	
-	
-	
+	public static void main(String[] args) {
+	ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext(
+	"applicationContext.xml");
+	CDaoAttendance tt = (CDaoAttendance) ctx.getBean("cDaoAttendance");
+	tt.queryLastAttendance();
+}
 	
 	
 	

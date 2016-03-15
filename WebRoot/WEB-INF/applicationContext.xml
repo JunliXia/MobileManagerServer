@@ -83,6 +83,12 @@
 		</property>
 	</bean>
 
+	<bean id="cBllVisitplanClock" class="org.springframework.scheduling.quartz.JobDetailBean">
+		<property name="jobClass">
+			<value>com.mm.bll.clock.CBllVisitplanClock</value>
+		</property>
+	</bean>
+
 
 	<!-- 这种配置可以精确几点执行定时任务 -->
 	<bean id="croncBllAttendanceClock" class="org.springframework.scheduling.quartz.CronTriggerBean">

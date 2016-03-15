@@ -860,6 +860,14 @@ public interface IDaoFrame {
 	 * 返回值:boolean
 	 */
 	public boolean updateVisitPlanStateForOutTimeState(CEntityVisitPlan cEntityVisitPlan);
+
+	/**
+	 * 序号：visitplan:25
+	 * 功能：通过当前日期修改拜访状态未开始为执行中
+	 * 参数：cEntityVisitPlan(VisitPlanEndTime)
+	 * 返回值:boolean
+	 */
+	public boolean updateVisitPlanStateForStart();
 	/*
 	 * ------------------------------拜访总结 visitconclusion-------------------------------------
 	 */	
@@ -1335,6 +1343,14 @@ public interface IDaoFrame {
 	 */
 	@SuppressWarnings("unchecked")
 	public List queryStatisticalByYearMonthAndEmployeeName(CEntityEmployee cEntityEmployee,String year,String month);
+
+	/**
+	 * 序号：attendance:13
+	 * 功能：取到最后一条记录的日期
+	 * 参数：
+	 * 返回值:String(yyyy/mm/dd)
+	 */
+	public String queryLastAttendance();
 	/*
 	 * ----------------------------通知 notice------------------------------------
 	 */

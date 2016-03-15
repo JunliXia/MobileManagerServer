@@ -34,20 +34,21 @@ public class CBllAttendanceListener implements ServletContextListener{
 		
 		
 //		//获取当日的考勤记录
-//		CEntityAttendance today=new CEntityAttendance.Builder().AttendanceDate(m_date).build();
-//		CEntityAttendanceArray todayArray=iDaoFrame.queryAllAttendanceByAttendanceDate(today);
-		
+		String date=iDaoFrame.queryLastAttendance();
 		
 		List<CEntityAttendance> cEntityAttendances=new ArrayList<CEntityAttendance>();
-		for(int i=0;i<cEntityEmployeeArray.getSize();i++){
-			//如果当日未记录的则增加进去
-//			if(todayArray.getItem(i).getcEntityEmployee().getM_iEmployeeId())
-			CEntityAttendance cEntityAttendance=new CEntityAttendance.Builder().AttendanceDate(m_date).build();
-			cEntityAttendance.setcEntityEmployee(cEntityEmployeeArray.getItem(i));
-			cEntityAttendances.add(cEntityAttendance);
+		if(!date.equals(getNewPubdate())){
+			for(int i=0;i<cEntityEmployeeArray.getSize();i++){
+				//如果当日未记录的则增加进去
+					CEntityAttendance cEntityAttendance=new CEntityAttendance.Builder().AttendanceDate(m_date).build();
+					cEntityAttendance.setcEntityEmployee(cEntityEmployeeArray.getItem(i));
+					cEntityAttendances.add(cEntityAttendance);
+				
+			}
+			CEntityAttendanceArray cEntityAttendanceArray=new CEntityAttendanceArray(cEntityAttendances);
+			iDaoFrame.saveAttendances(cEntityAttendanceArray);
 		}
-		CEntityAttendanceArray cEntityAttendanceArray=new CEntityAttendanceArray(cEntityAttendances);
-		iDaoFrame.saveAttendances(cEntityAttendanceArray);
+		
 		
 	}
 

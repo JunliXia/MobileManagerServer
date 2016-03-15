@@ -1192,6 +1192,16 @@ public class CDaoFrameImpl implements IDaoFrame {
 		boolean bisUpdate=cDaoVisitPlan.updateVisitPlanStateForOutTimeState(cEntityVisitPlan);
 		return bisUpdate;
 	}
+	/**
+	 * 序号：visitplan:25
+	 * 功能：通过当前日期修改拜访状态未开始为执行中
+	 * 参数：cEntityVisitPlan(VisitPlanEndTime)
+	 * 返回值:boolean
+	 */
+	public boolean updateVisitPlanStateForStart(){
+		boolean bisUpdate=cDaoVisitPlan.updateVisitPlanStateForStart();
+		return bisUpdate;
+	}
 	/*
 	 * ------------------------------拜访总结 visitconclusion-------------------------------------
 	 */	
@@ -1860,6 +1870,17 @@ public class CDaoFrameImpl implements IDaoFrame {
 	public List queryStatisticalByYearMonthAndEmployeeName(CEntityEmployee cEntityEmployee,String year,String month){
 		List findResult=cDaoAttendance.queryStatisticalByYearMonthAndEmployeeName(cEntityEmployee, year, month);
 		return findResult;
+	}
+	
+	/**
+	 * 序号：attendance:13
+	 * 功能：取到最后一条记录的日期
+	 * 参数：
+	 * 返回值:String(yyyy/mm/dd)
+	 */
+	public String queryLastAttendance(){
+		String result=cDaoAttendance.queryLastAttendance();
+		return result;
 	}
 	/*
 	 * ----------------------------通知 notice------------------------------------
