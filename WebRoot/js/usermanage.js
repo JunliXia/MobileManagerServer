@@ -1810,7 +1810,7 @@ function checkvisitconclusion() {
  	}
 }
 function delvisitconclusionOK(x) {
-	alert(x);
+//	alert(x);
 	var vit=tabvisitplan;
 	var state=$(vit).find("th").eq(5).html();
 	var visitplanid=$(vit).find("th").eq(6).html();

@@ -508,6 +508,8 @@ function checkvisitplan() {
 		$.getJSON("./WGetVisitConclusionServlet",{VisitPlanId:visitplanid},function(outjson){
 			$(".group-listvisitplan").html("");
 			var paths=outjson.VisitAccessoryPath.split("/");
+//			alert(paths+"-0--"+paths[2])
+			
 			$(".group-listvisitplan").append('<div class="group-one" style="height:100%;overflow-x:hidden;background-color: rgb(248,254,254);"> '+
 		  			'<div class="group-title" ><img src="./pic/back.png" style="height:30px;width:20px;cursor: pointer;margin-left:-1000px;" onclick="showvisitplan()"></img><div style="margin-top:-25px;"><font>总结详情</font></div></div>'+
 		  			'<div class="ground-one-left" style="float:left;width:50%;height:100%; 	">'+
@@ -671,7 +673,7 @@ function seevisitcounclusion() {
 	
 		$.getJSON("./WGetVisitConclusionDetailServlet",{VisitConclusionId:vistconid},function(outjson){
 			$(".group-listvisitplan").html("");
-			var paths=outjson.VisitAccessoryPath.split("\\");
+			var paths=outjson.VisitAccessoryPath.split("/");
 			$(".group-listvisitplan").append('<div class="group-one" style="height:100%;overflow-x:hidden;background-color: rgb(248,254,254);"> '+
 		  			'<div class="group-title" ><img src="./pic/back.png" style="height:30px;width:20px;cursor: pointer;margin-left:-1000px;" onclick="showback()"></img><div style="margin-top:-25px;"><font>总结详情</font></div></div>'+
 		  			'<div class="ground-one-left" style="float:left;width:50%;height:100%; 	">'+

@@ -901,7 +901,7 @@ function disclietvisitOK() {
 //		cucle=0;
 //	}
 	
-	alert(cycle)
+//	alert(cycle)
 	
 	//alert(clientid+"---"+employeeid+"----"+pubdate+"---"+starttime+"---"+endtime+"---"+cycle+"---"+cycletype+"---"+cyclepoint+"---"+playdays);
 	$.getJSON("./WDistributionClientServlet",{EmployeeId:employeeid,
@@ -926,7 +926,7 @@ function disclietvisitOK() {
 }
 
 function tocheckclient() {
-	alert(1);
+//	alert(1);
 }
 
 
