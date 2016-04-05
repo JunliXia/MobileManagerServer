@@ -256,7 +256,15 @@ public class CDaoAttendance extends SuperDAO {
 	 */
 	@SuppressWarnings("unchecked")
 	public List queryStatisticalByYearAndMonth(String year,String month){
-		String mix=year+"/"+month;
+		int intMonth=Integer.parseInt(month);
+		String mix="";
+		if(intMonth>=10){
+			mix=year+"/"+month;
+		}else{
+			mix=year+"/0"+month;
+		}
+		
+		System.out.println(mix);
 		String hql="select employee.m_iEmployeeId,employee.m_sEmployeeAccount ,employee.m_sEmployeeName," +
 				"sum(case when attendance.m_sAttendanceRegisterTime is not null or attendance.m_sAttendanceRegisterTime!='' then 1 else 0 end)," +
 				"sum(case when attendance.m_sAttendanceSignoutTime is not null or attendance.m_sAttendanceSignoutTime!='' then 1 else 0  end)," +
@@ -290,10 +298,16 @@ public class CDaoAttendance extends SuperDAO {
 		//这里应该在Bll里写，哎，写了都写了。
 		String mix="";
 		if(!month.equals("全部")){
-			mix=year+"/"+month;
+			int intMonth=Integer.parseInt(month);
+			if(intMonth>=10){
+				mix=year+"/"+month;
+			}else{
+				mix=year+"/0"+month;
+			}
 		}else{
 			mix=year;
 		}
+		System.out.println(mix);
 		String hql="select employee.m_iEmployeeId,employee.m_sEmployeeAccount ,employee.m_sEmployeeName,sum(case when attendance.m_sAttendanceRegisterTime is not null or attendance.m_sAttendanceRegisterTime!='' then 1 else 0 end),sum(case when attendance.m_sAttendanceSignoutTime is not null or attendance.m_sAttendanceSignoutTime!='' then 1 else 0  end),sum(case when attendance.m_sAttendanceRegisterTime not  between '08:30' and '09:00' then 1 else 0  end) ,sum(case when attendance.m_sAttendanceSignoutTime not   between '16:30' and '17:00' then 1 else 0  end),sum(case when attendance.m_sAttendanceRegisterTime is  null or attendance.m_sAttendanceRegisterTime='' then 1 else 0 end),sum(case when attendance.m_sAttendanceSignoutTime is null or attendance.m_sAttendanceSignoutTime='' then 1 else 0 end)  from com.mm.entity.CEntityEmployee as employee ,com.mm.entity.CEntityAttendance as attendance where attendance.cEntityEmployee.m_iEmployeeId=employee.m_iEmployeeId and employee.m_sEmployeeName=? and attendance.m_sAttendanceDate like '%"+mix+"%' group by employee.m_iEmployeeId ";
 		List findResult=this.getHibernateTemplate().find(hql,cEntityEmployee.getM_sEmployeeName());
 		Iterator it=findResult.iterator();
