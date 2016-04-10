@@ -244,22 +244,15 @@ function clientcheck() {
 }
 
 function checkclienet(id,type) {
-//	var x=usedetailtab;
 	
 	$.getJSON("./WCheckClientServlet",{ClientId:id,ClientSubmitState:type},function(outjson){
 			if(outjson.check){
 				alert("成功！");
-				
-
 			}else{
 				alert("失败！");
 			}
 			 closepage();
 			 shownocheck();
-//			 clientselect=2;
-//			 showclienttitle(clientselect);
-//			 showuserdetailclientsubmit(x);
-//			 curbut=2;
 		});
 }
 
@@ -739,7 +732,7 @@ function disbutclient() {
 	
 	$("#disclentid").append(str);
 }
-
+var iscycletypeplayday;
 function disbutclientOK() {
 	var  clientid=$("#discliennumbertid").val();
 	var clentname=$("#dicclientnameid").val();
@@ -802,7 +795,7 @@ function disbutclientOK() {
 	  		'</div>');
 	
 		
-		
+		iscycletypeplayday=$("#visitponitid").val()
 
 		
 	}
@@ -848,7 +841,7 @@ function iscycletype(num) {
 			$("#visitdian").append("<select id=visitplanse class=useselect  style='cursor:pointer; position: relative;margin-left:4px;width:240px;height:50px;font-size: 15px;'></select>");
 			$("#visitplanse").html("");
 			$("#visitplanse").append("<option  value ='1'>1</option><option  value ='2'>2</option><option  value ='3'>3</option><option  value ='4'>4</option><option  value ='5'>5</option><option  value ='6'>6</option><option  value ='7'>7</option>");
-			$("#visitplanse").find("option").eq(plandays-1).attr("selected","selected");
+			$("#visitplanse").find("option").eq(iscycletypeplayday-1).attr("selected","selected");
 		}else if(cycletype==2){
 			var str;
 			for(var i=1;i<=31;i++){
@@ -858,7 +851,7 @@ function iscycletype(num) {
 			$("#visitdian").append("<select id=visitplanse class=useselect  style='cursor:pointer; position: relative;margin-left:4px;width:240px;height:50px;font-size: 15px;'></select>");
 			$("#visitplanse").html("");
 			$("#visitplanse").append(str);
-			$("#visitplanse").find("option").eq(plandays-1).attr("selected","selected");
+			$("#visitplanse").find("option").eq(iscycletypeplayday-1).attr("selected","selected");
 		}else if(cycletype==3){
 			$("#visitdian").html("");
 			$("#visitdian").append(	"<input  class='main-input' style='margin-left:10px; width:309px;margin-top:10px;padding-top:-10px;height:50px;padding-top:-10px; font-size:18px;' placeholder='请输入限定天数' ></input>");
@@ -895,15 +888,15 @@ function disclietvisitOK() {
 	}
 	
 	//两个的判断写反了，就这个改改好了
-//	if(cycle==0){
-//		cycle=1;
-//	}else if(cycle==1){
-//		cucle=0;
-//	}
+	if(cycle==0){
+		cycle=1;
+	}else if(cycle==1){
+		cucle=0;
+	}
 	
 //	alert(cycle)
 	
-	//alert(clientid+"---"+employeeid+"----"+pubdate+"---"+starttime+"---"+endtime+"---"+cycle+"---"+cycletype+"---"+cyclepoint+"---"+playdays);
+//	alert(clientid+"---"+employeeid+"----"+pubdate+"---"+starttime+"---"+endtime+"---"+cycle+"---"+cycletype+"---"+cyclepoint+"---"+playdays);
 	$.getJSON("./WDistributionClientServlet",{EmployeeId:employeeid,
 		ClientId:clientid,VisitPlanPubdate:pubdate,VisitPlanStartTime:starttime,VisitPlanEndTime:endtime,
 		VisitPlanState:0,VisitPlanCycle:cycle,VisitPlanCycleType:cycletype,VisitPlanCycleNumber:cyclepoint,VisitPlanDays:playdays},function(outjson){
