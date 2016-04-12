@@ -585,7 +585,9 @@ function delvisitout() {
 function delvisitoutOK(x) {
 	var vit=curtab;
 	var date=new Date();
+	
 	var strdate=date.format("yyyy/MM/dd");
+	var visitplanid=$(vit).find("th").eq(1).html();
 	var myname=$(vit).find("th").eq(4).html();
 	var userid=$(vit).find("th").eq(15).html();
 	
